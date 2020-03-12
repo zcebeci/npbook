@@ -1,0 +1,3586 @@
+# Örnek 2.1: Örnek R komutları
+3*5
+a <- 3
+b <- 5
+a*b 
+x <- c(3, 2, 6, 8)
+sum(x)
+mean(x)
+
+# Örnek 2.2: R paketlerinin kurulması
+install.packages()
+
+# Örnek 2.3: Belirli bir paketin kurulması
+install.packages("readxl")
+
+# Örnek 2.4: Kurulu paketlerin listelenmesi
+library()
+
+# Örnek 8.2: BSDA paketi ile eşleştirilmiş örneklem işaret testi
+A <- c(157.5, 84.5, 134.0, 74.0, 108.0, 107.5, 
+   106.0,163.0,54.0)
+B <- c(164.5, 51.5, 250.0, 139.0, 113.0,124.5, 
+   95.5, 70.5, 30.5)
+
+if(!require(BSDA)) install.packages("BSDA")
+SIGN.test(x=B, y=A, alternative="greater", conf.level=0.95)
+
+# Örnek 2.5a: Bir paketin çalışma alanına yüklenmesi 1
+library(readxl)
+
+# Örnek 2.5b: Bir paketin çalışma alanına yüklenmesi 2
+library(xlsx)
+
+# Örnek 2.5c: Bir paketin çalışma alanına yüklenmesi 3
+require(readxl)
+
+# Örnek 2.6a: Excel dosyasını okuma fonksiyonunu çalıştırma 1
+x <- read_excel("ornek1.xlsx", sheet=1, col_names=TRUE)
+
+# Örnek 2.6b: Excel dosyasını okuma fonksiyonunu çalıştırma 2
+x <- readxl::read_excel("ornek1.xlsx", sheet=1, col_names=TRUE)
+
+# Örnek 2.7: Çalışma alanındaki paketin kaldırılması
+detach(package:readxl, unload=TRUE)
+
+# Örnek 2.8: x ve y çarpımlar toplamı
+x <- c(4, 5, 8, 10)
+y <- c(3, 2, 5, 8)
+xy <- x*y
+topxy <- sum(xy)
+print(topxy)
+
+# Örnek 2.9: R betik dosyasının çalıştırılması
+setwd("C:/npbook")
+source("xycarpim.R")
+
+# Örnek 2.9: R betik dosyasının çalıştırılması
+setwd("C:/npbook")
+source("xycarpim.R")
+
+# Örnek 2.10: R kodlarının çalıştırılması 1
+setwd("C:/npbook")
+source("xycarpim2.R")
+
+# Örnek 2.11: R kodlarının çalıştırılması 2
+setwd("C:/npbook")
+source("xycarpim3.R")
+
+# Örnek 2.12a: R fonksiyonlarının çalıştırılması 1
+# Bağımlılık - Örnek: 2.11
+x <- c(4, 5, 8, 10)
+y <- c(3, 2, 5, 8)
+xycarptop(x, y)
+
+# Örnek 2.12b: R fonksiyonlarının çalıştırılması 2
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 5, 8, 10)
+b <- c(3, 2, 5, 8)
+xycarptop(a, b)
+
+# Örnek 2.12c: R fonksiyonlarının çalıştırılması 3
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 5, 8, 10)
+b <- c(3, 2, 5, 8)
+xycarptop(x=a, y=b)
+
+# Örnek 2.12d: R fonksiyonlarının çalıştırılması 4
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 5, 8, 10)
+b <- c(3, 2, 5, 8)
+xycarptop(y=b, x=a)
+
+# Örnek 2.12e: R fonksiyonlarının çalıştırılması 5
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 5, 8, 10)
+b <- c(3, 2, 5, 8)
+xycarptop(x=a)
+xycarptop()
+
+# Örnek 2.12f: R fonksiyonlarının çalıştırılması 6
+# Bağımlılık - Örnek: 2.11
+a <- c(2, 1, 1)
+b <- c(10, 4, 6)
+xycarptop(x=a, y=b)
+b <- c(1, 2, 3)
+xycarptop(x=a, y=b)
+
+# Örnek 2.13a: R fonksiyonu çıktılarını kullanma 1
+# Bağımlılık - Örnek: 2.11
+x <- c(4, 4)
+y <- c(3, 2)
+xyct <- xycarptop(x=x, y=y)
+print(xyct)
+
+# Örnek 2.13b: R fonksiyonu çıktılarını kullanma 2
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 4)
+b <- c(3, 2)
+xyct <- xycarptop(x=a, y=b)
+sqrt(xyct)
+
+# Örnek 2.13c: R fonksiyonu çıktılarını kullanma 3
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 4)
+b <- c(3, 2)
+sqrt(xycarptop(x=a, y=b))
+
+# Örnek 2.13d: R fonksiyonu çıktılarını kullanma 4
+# Bağımlılık - Örnek: 2.11
+a <- c(4, 4)
+b <- c(3, 2)
+lnxycpt <- log(sqrt(xycarptop(x=a, y=b)))
+print(lnxycpt)
+
+# Örnek 2.14: magrittr paketini kurma ve çalışma alanına yükleme
+install.packages("magrittr")
+library(magrittr)
+
+# Örnek 2.15a: Fonksiyonlar arası değer aktarma 1
+# Bağımlılık - Örnek: 2.11, 2.14
+lnxycpt <- xycarptop(a,b) %>% sqrt %>% log
+
+# Örnek 2.15b: Fonksiyonlar arası değer aktarma 2
+# Bağımlılık - Örnek: 2.11, 2.14
+lnxycpt <- log(sqrt(xycarptop(x=a, y=b)))
+
+# Örnek 2.16a: R'den çıkma
+q()
+
+# Örnek 2.16c: R'den çıkma
+q(save = "default", status = 0, runLast = TRUE)
+
+# Örnek 2.17a: R çalışma alanı komutların kaydedilmesi
+savehistory(file = "nardeneme.Rhistory") # kaydetme
+
+# Örnek 2.17b: Kayıtlı komutların R çalışma alanına yüklenmesi
+# Bağımlılık - Örnek: 2.17a
+loadhistory(file = "nardeneme.Rhistory") # geri yükleme
+
+# Örnek 2.18: Çalıştırılan komutları listeleme
+history(max.show = 10, reverse=TRUE)
+
+# Örnek 2.19: Çalışma alanındaki nesneleri listeleme ve kaldırma
+ls()
+rm(x)
+ls()
+
+# Örnek 3.1: Maksimum tamsayı büyüklüğü
+.Machine$integer.max
+
+# Örnek 3.2: Tamsayı örnekleri
+yas <- 21L
+hatakod <- -90L
+ogrno <- 2017360127L
+
+# Örnek 3.3: Maksimum gerçel sayı büyüklüğü
+.Machine$double.xmax
+
+# Örnek 3.4: Gerçel sayı örnekleri
+su.ph <- 8.2
+yogunluk <- 2.38e-12
+karelertoplami <- 3e+64
+xortalama <- 129.567788
+
+# Örnek 3.5: Kompleks sayı örneği
+x <- complex(real = 2, imaginary = 1)
+x
+
+# Örnek 3.6: Karakter dizesi örnekleri
+mesaj <- "Merhaba" 
+mesaj
+ad <- "Can"
+ad
+il <- 'Adana'
+il
+plaka <- "01WW999"
+plaka
+skod <- "T"
+skod
+ilkod <- "01"
+ilkod
+
+# Örnek 3.7: Ham veri örneği
+mesaj <- charToRaw("Merhaba")
+mesaj
+il <- charToRaw("Adana")
+il
+
+# Örnek 3.8: Mantıksal (ikil) veriler
+dosyaacik <- TRUE
+dosyaacik
+dosyaacik <- FALSE
+dosyaacik
+dosyasonu <- TRUE
+dosyasonu
+
+# Örnek 3.9: Vektör tanımlama örnekleri 
+TurAd <- c("Kara melike","Küçük ateşgüzeli","Güzelmavi")
+TurAd
+KntAck <- c(52.5, 30.2, 34.2)
+KntAck
+KntRenk <- c("siyah","ateş","mavi")
+KntRenk
+Benek <- c(TRUE, TRUE, FALSE)
+Benek
+Habitat <- c("O","Ç","OÇ")
+Habitat
+BolDrc <- c(3L,5L,4L)
+BolDrc
+UreBitki <- c("Böğürtlen","Labada","Baklagil")
+UreBitki
+MaksYuk <- c(1600, 1600, 1750)
+MaksYuk
+
+# Örnek 3.10: Boş vektör 
+x <- c()
+x
+
+# Örnek 3.11a: Vektör elemanlarına erişme 1 
+# Bağımlılık – Örnek: 3.9
+KntAck
+KntAck[1]
+KntAck[3]
+KntAck[2:3]
+KntAck[5]
+
+# Örnek 3.11b: Vektör elemanlarına erişme 2 
+# Bağımlılık – Örnek: 3.9
+KntAck[0]
+
+# Örnek 3.11c: Vektör elemanlarına erişme 3 
+# Bağımlılık – Örnek: 3.9
+KntAck
+t(KntAck)
+
+# Örnek 3.12a: Veri çerçevesi tanımlama 1
+# Bağımlılık – Örnek: 3.9
+kelebekgozlem <- data.frame(TurAd, KntAck, KntRenk, Benek, 
+   Habitat, BolDrc, UreBitki)
+
+kelebekgozlem
+
+# Örnek 3.12b: Veri çerçevesi tanımlama 2
+# Bağımlılık – Örnek: 3.12a
+#
+kelebekgozlem$MaksYuk  <- MaksYuk
+kelebekgozlem
+
+# Örnek 3.12c: Veri çerçevesi tanımlama 3
+# Bağımlılık – Örnek: 3.12a
+#
+kelebekgozlem  <- cbind(kelebekgozlem, MaksYuk)
+kelebekgozlem
+
+# Örnek 3.13a: Veri çerçevesi elemanlarına erişme 1
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem[3,2]
+
+# Örnek 3.13b: Veri çerçevesi elemanlarına erişme 2
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem[2,]
+
+# Örnek 3.13c: Veri çerçevesi elemanlarına erişme 3
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem[2:3,]
+
+# Örnek 3.13d: Veri çerçevesi elemanlarına erişme 4
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem[,4]
+
+# Örnek 3.13e: Veri çerçevesi elemanlarına erişme 5
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem[,4:6]
+kelebekgozlem[,c(1,3,6)]
+
+# Örnek 3.13f: Veri çerçevesi elemanlarına erişme 6
+# Bağımlılık – Örnek: 3.12c
+#
+kelebekgozlem$TurAd 
+kelebekgozlem$BolDrc
+
+# Örnek 3.14a: Matris tanımlama 1 
+m <- matrix(c(5,6,7,8,9,10), nrow=3, ncol=2)
+m
+
+# Örnek 3.14b: Matris tanımlama 2 
+m <- matrix(c(1), nrow=3, ncol=3)
+m
+
+# Örnek 3.14c: Matris tanımlama 3 
+m <- matrix(c(1,2,3), ncol=3, nrow=3)
+m
+
+# Örnek 3.14d: Matris tanımlama 4 
+m <- matrix(c(1,2), ncol=3, nrow=3)
+m
+
+# Örnek 3.14e: Matris tanımlama 5
+m1 <- matrix(c(1,2,3), ncol=3, nrow=3)
+m1
+m2 <- matrix(c(1,2,3), ncol=3, nrow=3, byrow=TRUE)
+m2
+
+# Örnek 3.14f: Matris tanımlama 6
+cm <- matrix(c('A','B','C'), nrow=3, ncol=3)
+cm
+
+# Örnek 3.14g: Matris tanımlama 7
+m <- matrix(c(1,'A',3,'B'), nrow=2, ncol=2, byrow=TRUE)
+m
+m <- matrix(c(1,TRUE,3,FALSE,4,FALSE),nrow=3,ncol=2,byrow=TRUE)
+m
+
+# Örnek 3.15: Matris elemanlarına erişim
+m <- matrix(c(5,6,7,8,9,10), nrow=3, ncol=2)
+m
+m[1,1]
+m[1,2]
+m[2,1]
+m[1,]
+m[,2]
+
+# Örnek 3.16: Liste tanımlama 1
+#
+il <- "Adana"
+yillar <- c(2017, 2018)
+smuretim <- matrix(c(1.1, 1.3, 2.1, 2.5),
+   ncol=2,nrow=2, byrow=T)
+adanatarim <- list(il, yillar, smuretim)
+adanatarim
+
+# Örnek 3.17a: Liste elemanlarına erişme 1
+# Bağımlılık – Örnek: 3.16
+#
+adanatarim[[1]]
+adanatarim[[2]]
+adanatarim[[3]]
+
+# Örnek 3.17b: Liste elemanlarına erişme 2
+# Bağımlılık – Örnek: 3.16
+#
+smuretim <- matrix(adanatarim[[3]], ncol=2,nrow=2)
+smuretim
+
+# Örnek 3.18: Liste tanımlama 2
+# Bağımlılık – Örnek: 3.16
+#
+adanatarim <- list(lokasyon=il, donem=yillar, uretim=smuretim)
+adanatarim
+
+# Örnek 3.19: Liste elemanları
+# Bağımlılık – Örnek: 3.18
+#
+names(adanatarim)
+
+# Örnek 3.20: Liste elemanlarına erişme 3
+# Bağımlılık – Örnek: 3.18
+#
+adanatarim[[3]]
+adanatarim[["uretim"]]
+adanatarim$uretim
+
+# Örnek 3.21a: Dizi tanımlama 1
+matdizi <- array(dim=c(3,2,2))
+matdizi
+
+# Örnek 3.21b: Dizi tanımlama 2
+x <- c(3,4,2,9,4,5,6,12,3,2,1,6)
+matdizi <- array(x,dim=c(3,2,2))
+matdizi
+
+# Örnek 3.22a: Dizi elemanlarına erişme 1
+# Bağımlılık – Örnek: 3.21b
+#
+matdizi[1,1,1]
+matdizi[2,2,1]
+matdizi[2,2,]
+matdizi[3,1,]
+matdizi[,1,2]
+matdizi[,2,1]
+matdizi[,1,]
+matdizi[,2,]
+
+# Örnek 3.22b: Dizi elemanlarına erişme 2
+# Bağımlılık – Örnek: 3.21b
+mat1 <- matdizi[,,1]
+mat1
+mat2 <- matdizi[,,2]
+mat2
+
+# Örnek 3.23: Faktör tanımlama
+elmacesit <- c("Amasya","Amasya","Amasya",
+  "Niğde","Niğde","Niğde",
+  "Demir","Demir","Demir")
+elmaverim <- c(90,120,97,110,150,83,45,77,63)
+elmacesit
+elmaverim
+
+# Örnek 3.24: Tanımlayıcı istatistikler
+# Bağımlılık – Örnek: 3.23
+summary(elmaverim)
+summary(elmacesit)
+elmacesit1 <- factor(elmacesit)
+elmacesit1
+summary(elmacesit1)
+
+# Örnek 3.24: Faktör seviyeleri
+# Bağımlılık – Örnek: 3.23
+#
+levels(elmacesit1)
+
+# Örnek 3.25: Ordinal ölçekli faktörler
+# Bağımlılık – Örnek: 3.23
+#
+elmacesit2 <- factor(elmacesit, levels=c("Amasya", "Demir", 
+ "Niğde"), ordered=TRUE)
+elmacesit2
+
+# Örnek 3.26: Ordinal ölçekli faktörler
+# Bağımlılık – Örnek: 3.25
+#
+elmacesit2 <- factor(elmacesit2,levels=rev(levels(elmacesit2)))
+elmacesit2
+
+# Örnek 3.27: Ordinal ölçekli faktörler
+# Bağımlılık – Örnek: 3.24
+#
+elmacesit2 <- ordered(elmacesit1)
+elmacesit2
+
+# Örnek 3.28: Ordinal ölçekli faktörler
+elmacesitnumeric <- c(1,1,1,2,2,2,3,3,3,0,4)
+elmakod <- c(Amasya = 1, Niğde = 2, Demir=3)
+elmacesit <- factor(elmacesitnumeric, 
+  levels=elmakod, labels=names(elmakod))
+elmacesit
+
+# Örnek 3.29: mtcars verisetinin çalışma alanına bağlanması
+attach(mtcars)
+
+# Örnek 3.30a: Tablo oluşturma
+# Bağımlılık – Örnek: 3.29
+#
+tablo1 <- table(cyl)
+tablo1
+tablo2 <- table(gear)
+tablo2
+
+# Örnek 3.30b: Çapraz tablo oluşturma 
+# Bağımlılık – Örnek: 3.29
+#
+tablo3 <- table(cyl, gear) 
+tablo3 
+
+# Örnek 3.31: Satır ve sütun toplamları
+# Bağımlılık – Örnek: 3.30b
+#
+margin.table(tablo3, 1) #Satır toplamları
+margin.table(tablo3, 2) # Sütun toplamları
+margin.table(tablo3)  # Genel toplam
+
+# Örnek 3.32: Satır ve sütun toplamları
+# Bağımlılık – Örnek: 3.30b
+#
+mosaicplot(tablo3, 
+ main="Silindir-Vites Mozaik Grafiği",
+ xlab="Silindir sayısı", ylab="Vites sayısı",
+ col=c("orange","green","gray"), cex=1)
+
+# Örnek 3.33: Yüzde frekanslar tablosu
+# Bağımlılık – Örnek: 3.30b
+#
+prop.table(tablo3) # Yüzde frekanslar tablou
+prop.table(tablo3, 1) # Satır seviye yüzdeleri
+prop.table(tablo3, 2) # Sütun seviye yüzdeleri
+
+# Örnek 3.34: Üç boyutlu tablo oluşturma
+# Bağımlılık – Örnek: 3.29
+#
+tablo4 <- table(cyl,gear, carb)
+ftable(tablo4) 
+
+# Örnek 3.35: Formül stili tablo oluşturma
+# Bağımlılık – Örnek: 3.29
+#
+tablo2 <- xtabs(~cyl+gear, data=mtcars)
+ftable(tablo2) 
+
+# Örnek 3.36: Formül stili üç boyutlu tablo oluşturma
+# Bağımlılık – Örnek: 3.29
+#
+tablo3 <- xtabs(~cyl+gear+carb, data=mtcars)
+ftable(tablo4) 
+
+# Örnek 3.37: gmodels ile çapraz tablo oluşturma
+# Bağımlılık – Örnek: 3.29, Paket: gmodels
+#
+if(!require(gmodels))
+   {install.packages("gmodels"); require(gmodels)}
+
+CrossTable(mtcars$cyl, mtcars$gear)
+
+# Örnek 3.38a: Kayıp ve özel değerler
+x <- NA
+x 
+y <- c(1.2, 3.5, 4.1, NA, 2.6)
+y
+w <- c(TRUE, FALSE, NA, NA, TRUE)
+w
+f <- c("a", "b", NA, "e") 
+f
+
+# Örnek 3.38b: Sonsuz değer
+a <- 5
+b <- 0
+s <- a/b
+s
+a=-5
+s <- a/b
+s
+
+# Örnek 3.38c: NaN değeri
+s <- 0/0
+s
+
+# Örnek 3.39: Vektör elemanlarına ad verme
+x <- c(5,2,4,6)
+x
+names(x)
+xnames <- c("x1","x2","x3", "x4")
+names(x) <- xnames
+x
+names(x)
+
+# Örnek 3.40a: Adlandırılmış vektör elemanı
+# Bağımlılık – Örnek: 3.39
+x[1]
+
+# Örnek 3.40b: Adların silinmesi
+# Bağımlılık – Örnek: 3.39
+#
+x <- unname(x)
+x
+
+# Örnek 3.41: Veri çerçevesinde adlandırma
+xdf <- data.frame(cbind(c("Adana","Mersin","Osmaniye","Hatay"),
+  c(1.3, 0.98, 0.67, 1.2), c(4, 6, 2, 3)))
+xdf
+
+# Örnek 3.42a: Adların listelenmesi 1
+# Bağımlılık – Örnek: 3.41
+#
+names(xdf)
+
+# Örnek 3.42b: Adların listelenmesi 2
+# Bağımlılık – Örnek: 3.41
+#
+colnames(xdf)
+
+# Örnek 3.43: Satır adlarının listelenmesi
+# Bağımlılık – Örnek: 3.41
+#
+row.names(xdf)
+
+# Örnek 3.44: Satır ve sütun adlarının listelenmesi
+# Bağımlılık – Örnek: 3.41
+#
+dimnames(xdf)
+
+# Örnek 3.45a: Sütun adlarının değiştirilmesi
+# Bağımlılık – Örnek: 3.41
+#
+sutad <- c("il", "nufus", "distic") 
+colnames(xdf) <- sutad
+xdf
+
+# Örnek 3.45b: Satır adlarının değiştirilmesi
+# Bağımlılık – Örnek: 3.41
+#
+satad <- paste0("İl.",1:nrow(xdf)) 
+rownames(xdf) <- satad
+xdf 
+
+# Örnek 3.45c: Satır ve sütun adlarının değiştirilmesi
+# Bağımlılık – Örnek: 3.41
+#
+dimnames(xdf) <- list(satad, sutad)
+xdf
+
+# Örnek 3.46: Dizilerde adlandırma
+# 
+gozlemler <-  sample(1:100, 24)
+sutad <- paste0("v",1:4)
+satad <- paste0("s",1:3)
+matad <- paste0("Matris",1:2)
+
+xarr <- array(gozlemler,dim = c(3,4,2),
+  dimnames = list(satad, sutad, matad))
+
+xarr
+dimnames(xarr) 
+
+# Örnek 3.45: Özniteliklerin görüntülenmesi 1
+# Bağımlılık – Örnek: 3.41
+#
+attributes(xdf)
+
+# Örnek 3.46: Özniteliklerin görüntülenmesi 2
+iller <- c("Adana", "Mersin", "Osmaniye")
+attributes(iller)
+
+# Örnek 3.47: Özniteliklerin atanması ve görüntülenmesi
+# Bağımlılık – Örnek: 3.46
+#
+oznitiller <- list(bolge="Çukurova")
+attributes(iller) <- oznitiller
+iller
+
+# Örnek 3.48: Özniteliklerin görüntülenmesi
+# Bağımlılık – Örnek: 3.47
+#
+attr(iller, "bolge"
+
+# Örnek 3.49: Birden fazla öznitelik atama
+# Bağımlılık – Örnek: 3.46
+#
+mostattributes(iller) <- oznitiller
+iller
+attributes(iller)
+
+# Örnek 3.50: Özniteliklerin temizlenmesi
+# Bağımlılık – Örnek: 3.49
+#
+attributes(iller) <- NULL
+attributes(iller)
+
+# Örnek 3.51: Kayıp değer kontrolü
+x <- c("Adana", NA, "Mersin", "Hatay", NA)
+y <- c(34, 56, 48, NA, 43)
+z <- c("A", "B", "C", "D", "E")
+is.na(x)
+is.na(y)
+is.na(z) 
+anyNA(x)
+anyNA(y)
+anyNA(z)
+
+# Örnek 3.52: Boyutların öğrenilmesi
+x <- c(12, 4, 8, 3)
+length(x)
+h <- c("Adana","Mersin","Osmaniye")
+length(h)
+y <- c(TRUE, FALSE, TRUE)
+length(z)
+z <- c(4+5i, 3.2+2i)
+length(z)
+l <- list(a=c(1,2,3), b=c("A", "B"), c=TRUE)
+length(l)
+
+# Örnek 3.53: Karaketer dizesi uzunluğunu öğrenme
+i <- "A" 
+nchar(i)
+il <- "Adana"
+nchar(il)
+
+# Örnek 3.54: Vektörlerden örnek için veri çerçevesi oluşturma
+iller <- c("Adana", "Mersin", "Osmaniye")
+nufus <- c(1.3, 0.978, 0.62)
+xdf <- data.frame(iller, nufus)
+xdf
+
+# Örnek 3.55a: Veri çerçevesi boyutları 1
+# Bağımlılık – Örnek: 3.54
+#
+dim(xdf)
+
+# Örnek 3.55b: Veri çerçevesi boyutları 2
+# Bağımlılık – Örnek: 3.54
+#
+xdfboyut <- dim(xdf)
+xdfboyut[1]
+xdfboyut[2]
+
+# Örnek 3.55c: Veri çerçevesi boyutları 3
+# Bağımlılık – Örnek: 3.54
+#
+nrow(xdf)
+ncol(xdf)
+
+# Örnek 3.56: Matris boyutları
+xmat <- matrix(rnorm(12), ncol=3, nrow=4)
+xmat
+dim(xmat)
+nrow(xmat)
+ncol(xmat)
+
+# Örnek 3.57: Dizi boyutları
+xarr <- array(dim=c(3,2,4))
+dim(xarr)
+
+# Örnek 3.58: Yapı inceleme 1
+w <- 12L
+str(w)
+
+# Örnek 3.59: Yapı inceleme 2
+# Bağımlılık – Örnek: 3.54
+#
+str(xdf)
+
+# Örnek 3.60: Yapı inceleme 3
+# Bağımlılık – Örnek: 3.56
+#
+str(xmat)
+
+# Örnek 3.61: Yapı inceleme 4
+# Bağımlılık – Örnek: 3.57
+#
+str(xarr)
+
+# Örnek 3.62: Örnek için veri çerçevesi oluşturma
+set.seed(1234)
+xdf <- data.frame(a=rnorm(10), b=rnorm(10), c=rnorm(10))
+xdf
+
+# Örnek 3.63a: Veri çerçevesini inceleme 1
+# Bağımlılık – Örnek: 3.62
+head(xdf)
+
+# Örnek 3.63b: Veri çerçevesini inceleme 2
+# Bağımlılık – Örnek: 3.62
+head(xdf, 3)
+tail(xdf, 2)
+
+# Örnek 3.64a: Veri çerçevesini düzenleme 1
+# Bağımlılık – Örnek: 3.62
+xdf <- edit(xdf)
+
+# Örnek 3.64b: Veri çerçevesini düzenleme 2
+# Bağımlılık – Örnek: 3.62
+fix(xdf)
+
+# Örnek 3.65: Veri türü sorgulama
+onum <- c(1267L, 433L)
+onum
+typeof(onum)
+
+# Örnek 3.66a: Zorlama örneği 1
+# Bağımlılık – Örnek: 3.65
+onum[2] <- 2147483648
+onum
+typeof(onum)
+
+# Örnek 3.66b: Zorlama örneği 2
+# Bağımlılık – Örnek: 3.65
+onum[1] <- "Ada"
+onum
+typeof(onum)
+
+# Örnek 3.67: Matristen vektöre dönüştürme
+m <- matrix(c(2,4,5,1,4,3),ncol=3, nrow=2)
+m
+v <- as.vector(m)
+v
+
+# Örnek 3.68: Vektörden listeye dönüştürme
+# Bağımlılık – Örnek: 3.67
+x <- as.list(x=v)
+x
+
+# Örnek 3.69a: Örnek veri çerçevesi oluşturma
+df1 <- data.frame(x1=sample(1:10,4), x2=sample(1:100,4))
+df1
+
+# Örnek 3.69b: Veri çerçevesini matrise dönüştürme
+# Bağımlılık – Örnek: 3.69a
+mat1 <- as.matrix(df1)
+mat1
+
+# Örnek 3.69c: Matrisi veri çerçevesine dönüştürme
+# Bağımlılık – Örnek: 3.69b
+df2 <- as.data.frame(mat1)
+df2
+
+# Örnek 3.70a: Karışık türden veri çerçevesi oluşturma
+df3 <- data.frame(f=letters[1:4], y=sample(1:100,4))
+df3
+
+# Örnek 3.70b: Karışık türden veri çerçevesini matrise dönüştürme
+# Bağımlılık – Örnek: 3.70a
+mat2 <- as.matrix(df3)
+mat2
+
+# Örnek 3.71: Matrisi diziye dönüştürme
+# Bağımlılık – Örnek: 3.69b
+armat1 <- as.array(mat1)
+armat1
+
+# Örnek 3.72: Yanlış atama işleci kullanma
+x <- c(2, 5, 4)
+if (x[1]<-8) x
+x
+if (x[1]=9) x
+
+# Örnek 3.73: Vektör tanımlama
+x <- c(3, 4, 2, 8)
+y <- c(1, 3, 3, 4)
+
+# Örnek 3.74a: Vektörlerle işlemler
+# Bağımlılık – Örnek: 3.73
+x+y
+x-y
+x*y
+x/y
+x%/%y   # Bölümün tamsayı kısmı
+x%%y    # Bölmede kalan değer
+x>y
+
+# Örnek 3.74b: Vektörün devriği
+# Bağımlılık – Örnek: 3.73
+tx <- t(x)
+t(x)
+tx*y   #Eleman çarpımları
+tx%*%y  #Vektörel çarpım
+
+# Örnek 3.74c: Vektörlerde istatistik hesaplama
+# Bağımlılık – Örnek: 3.73
+sum(x)
+mean(x)
+
+# Örnek 3.75: Matrislerle işlemler
+A <- matrix(c(3,3,4,9), nrow=2, ncol=2)
+A
+B <- matrix(c(1,2,3,1), nrow=2, ncol=2)
+B
+A+B
+A-B
+A*B
+A/B
+
+# Örnek 3.76: Devrik matrisler ve işlemler
+# Bağımlılık – Örnek: 3.75
+tA <- t(A)
+tA
+tA*A   #Eleman çarpımı
+tA%*%A  #Matris formunda iç çarpım
+
+# Örnek 3.77: Matrisin tersini hesaplama
+A <- matrix(c(3,3,4,9,8,2,7,4,9), nrow=3, ncol=3)
+A
+detA <- det(A)
+detA
+invA1 <- solve(A)
+invA1
+minor <- function(A, i, j) det( A[-i,-j] )
+cofactor <- function(A, i, j) (-1)^(i+j) * minor(A,i,j)
+adjoint1 <- function(A) {
+  n <- nrow(A)
+  B <- matrix(NA, n, n)
+  for( i in 1:n )
+    for( j in 1:n )
+      B[j,i] <- cofactor(A, i, j)
+  B
+}
+adjoint1(A)
+invA2 <- adjoint1(A)/detA
+invA2
+
+# Örnek 3.78: Örnek için vektör oluşturma 
+iller <- c("Mersin", "Adana", "Osmaniye", "Hatay")
+nufus <- c(1793931, 2216475, 527724, 1575226)
+liman <- c(TRUE, TRUE, FALSE, TRUE)
+
+# Örnek 3.79a: Vektörlerde sıralama işlemi 1
+# Bağımlılık – Örnek: 3.78
+sort(iller)
+sort(nufus)
+sort(liman)
+
+# Örnek 3.79b: Vektörlerde sıralama işlemi 2
+# Bağımlılık – Örnek: 3.78
+sort(iller, decreasing=TRUE)
+
+# Örnek 3.79c: Vektörlerde sıralama işlemi 3
+# Bağımlılık – Örnek: 3.78
+sort(iller, decreasing=TRUE, method="shell")
+  
+# Örnek 3.80: Sıralama yöntemleri için hız karşılaştırması
+x <- rnorm(1e+07, 50, 5)
+system.time(x1 <- sort(x, method = "radix"))
+system.time(x2 <- sort(x, method = "quick"))
+system.time(x3 <- sort(x, method = "shell"))
+
+# Örnek 3.81: mtcars verisetinin çalışma alanına eklenmesi
+attach(mtcars)
+head(mtcars)
+
+# Örnek 3.82a: Veri çerçevesinde sıralama 1
+# Bağımlılık – Örnek: 3.81
+#
+mtcars.s1 <- mtcars[order(mpg),]
+head(mtcars.s1)
+
+# Örnek 3.82b: Veri çerçevesinde sıralama 2
+# Bağımlılık – Örnek: 3.81
+#
+mtcars.s2 <- mtcars[order(mpg, decreasing=TRUE),]
+head(mtcars.s2)
+
+# Örnek 3.82c: Veri çerçevesinde sıralama 3
+# Bağımlılık – Örnek: 3.81
+#
+mtcars.s2 <- mtcars[order(-mpg),]
+head(mtcars.s2)
+
+# Örnek 3.83a: Veri çerçevesinde birden fazla değişkenle sıralama
+# Bağımlılık – Örnek: 3.81
+#
+mtcars.s3 <- mtcars[order(mpg, cyl),]
+head(mtcars.s3) 
+
+# Örnek 3.83b: Veri çerçevesinde birden fazla değişkenle sıralama
+# Bağımlılık – Örnek: 3.81
+#
+mtcars.s4 <- mtcars[order(-mpg, cyl),]
+head(mtcars.s4)
+
+# Örnek 4.1: iris verisetini çalışma alanına yükleme ve listeleme
+data(iris)
+iris
+
+# Örnek 4.2: iris veriseti ile çalışma
+# Bağımlılık – Örnek: 4.1
+#
+mean(iris$Sepal.Length)
+
+# Örnek 4.3: iris verisetini çalışma alanına yükleme ve çalışma
+attach(iris)
+mean(Sepal.Length)
+
+# Örnek 4.4: iris verisetini çalışma alanından kaldırma
+detach(iris)
+
+# Örnek 4.5: Yüklü tüm verisetlerini çalışma alanından kaldırma
+detach()
+
+# Örnek 4.6: Paketlerdeki verisetlerini çalışma alanına yükleme
+if(!require(vegclust)){
+  install.packages("vegclust"); library(vegclust)}
+
+data(wetland, package="vegclust")
+print(wetland[1:3, 1:5])
+
+# Örnek 4.7: Dahili veri üretim için örnek matris oluşturma
+#
+x  <- matrix(c(3,7,6,12,10,4,4,3,5,6), nrow=5, ncol=2)
+x
+
+# Örnek 4.8: Matris satır ve sütunlarına ad verme
+# Bağımlılık – Örnek: 4.7
+#
+colnames(x) <- c("x1","x2")
+rownames(x) <- letters[1:5]
+x
+
+# Örnek 4.9: Veri bağlantısı – Konsoldan veri okuma
+gozlemler <- textConnection("
+x1 x2
+3 4
+7 4
+6 3
+12 5
+10 6
+")
+x <- read.table(gozlemler, header = TRUE) 
+close(gozlemler)
+
+x
+colnames(x) <- c("x1", "x2")
+rownames(x) <- letters[1:5]
+x
+
+# Örnek 4.10: Metin türü dosyadan okuma
+setwd("C:/npbook")
+x <- read.table(file="hayvancilik.txt", sep="\t", header=TRUE)
+
+# Örnek 4.11: Dosyadan okunan verinin görüntülenmesi
+# Bağımlılık – Örnek: 4.10
+x
+
+# Örnek 4.12: Satırlara ad verme
+# Bağımlılık – Örnek: 4.10
+row.names(x) <- x$yil
+x
+
+# Örnek 4.13a: Veri çerçevesinden yil sütunu (1. sütun) silme
+# Bağımlılık – Örnek: 4.10
+#
+xyeni <- x[,2:5]
+xyeni
+
+# Örnek 4.13b: Veri çerçevesinden yil sütunu (1. sütun) silme
+# Bağımlılık – Örnek: 4.10
+#
+xyeni <- x[,-1]
+
+# Örnek 4.14a: readxl paketinin yerel sisteme kurulması
+install.packages("readxl", repo="https://cloud.r-project.org/")
+
+# Örnek 4.14b: readxl paketinin yerel sisteme kurulması
+library(readxl)
+
+# Örnek 4.15a: Excel dosyasını okuma 1
+# Bağımlılık – Örnek: 4.14b
+setwd("C:/npbook")
+x <- read_excel("hayurunler.xlsx", sheet=1, col_names=TRUE)
+x
+# A tibble: 16 x 10
+
+# Örnek 4.15b: Excel dosyasını okuma 2
+# Bağımlılık – Örnek: 4.14b
+x <- read_excel(file.choose(),sheet=1, col_names=TRUE)
+x
+# A tibble: 16 x 10
+
+# Örnek 4.15c: Excel dosyasını okuma 3
+# Bağımlılık – Örnek: 4.14b
+setwd("C:/npbook")
+x <- read_xlsx("hayurunler.xlsx", sheet=1,
+  na="*", col_names=TRUE)
+x
+
+# Örnek 4.16: SPSS dosyasını okuma
+if(!require(foreign)){
+  install.packages("foreign"); library(foreign)}
+x <- read.spss(file="ornek.sav")
+
+# Örnek 4.17: SPSS dosyasını okuma
+if(!require(Hmisc)){
+  install.packages("Hmisc"); library(Hmisc)}
+x <- sasxport.get("ornek.xpt")
+
+# Örnek 4.18: Uzak sistemlerden dosya okuma 1
+x <- read.table(
+  "http://www.stats.ox.ac.uk/pub/datasets/csb/ch11b.dat")
+head(x)
+
+# Örnek 4.19: Uzak sistemlerden dosya okuma 2
+x <- read.csv("http://lib.stat.cmu.edu/jcgs/tu", skip=4,
+     header=T)
+head(x)
+
+# Örnek 4.20: Uzak sistemlerden dosya okuma 3
+if(!require("RCurl")){
+   install.packages("RCurl"); library(RCurl)}
+x <- read.table(textConnection(getURL(
+"http://jupiterdebiryer.com/data.txt",
+  userpwd = "kullanıcıadı:şifre")),
+  sep="\t", header=TRUE)
+x
+
+# Örnek 4.21: Uzak sistemlerden dosya okuma 4
+if(!require(RCurl)) {install.packages("RCurl"); library(RCurl)}
+depo <- "http://archive.ics.uci.edu"
+dosya <- "/ml/machine-learning-databases/ecoli/ecoli.data"
+adres <- paste0(depo, dosya)
+ecoli <- read.table(textConnection(getURL(adres)),
+  sep="\t", header=FALSE)
+head(ecoli)
+
+# Örnek 4.22a: sink ile kayıt 1
+if(!require(readxl)) {
+  install.packages("readxl"); library(readxl)}
+setwd("C:/npbook")
+x <- readxl::read_excel("hayurunler.xlsx", sheet=1,
+  col_names=TRUE)
+x <- as.data.frame(x)
+sink(file="hvanaliz.out")
+cat("X veriseti\n")
+print(x)
+cat("\n Temel İstatistikler\n")
+tstat <- summary(x)
+tstat
+sink()
+
+# Örnek 4.22b: sink ile kayıt 2
+# Bağımlılık – Örnek: 4.22a
+sink(file="hvanaliz.out", append=TRUE)
+cat("\nToplam Et Üretimi\n")
+topeturt <- x[,1] + x[,4]
+topeturt
+sink()
+
+# Örnek 4.23: write.table ile metin türü dosyaya kaydetme
+# Bağımlılık – Örnek: 4.22a
+write.table(x, file="huretim.txt", sep="\t")
+
+# Örnek 4.24a: save ile R veri dosyasına kaydetme
+# Bağımlılık – Örnek: 4.22a
+save(x, tstat, file="hvanaliz.Rdata")
+
+# Örnek 4.24b: load ile R veri dosyasından okuma
+# Bağımlılık – Örnek: 4.24a
+load("hvanaliz.Rdata")
+tstat <- summary(x)
+print(tstat[, 1:3])
+
+# Örnek 4.25a: Grafikleri dosyaya kaydetme
+data(iris) 
+png("iris_serpilme.png") #PNG türü dosyaya kayıt
+pairs(iris[,1:4])
+dev.off()
+
+# Örnek 4.25b: Grafikleri dosyaya kaydetme
+data(iris) 
+pairs(iris[,1:4])
+dev.copy(png,"iris_serpilme.png") #PNG türü dosyaya kayıt
+dev.off()
+
+# Örnek 5.1: Kiraz meyve ağırlığı denemesi veri dosyalarını okuma
+setwd("C:/npbook")
+kiraz1 <- read.table("kiraz1.txt", head=TRUE, sep="\t")
+kiraz2 <- read.table("kiraz2.txt", head=TRUE, sep="\t")
+
+# Örnek 5.2: Kiraz meyve ağırlığı denemesi verisini inceleme
+str(kiraz1)
+head(kiraz1)
+tail(kiraz1)
+
+# Örnek 5.3: Kiraz meyve ağırlığı denemesinde asit doz grupları
+levels(kiraz1$grup)
+
+# Örnek 5.4: Kiraz meyve ağırlığı denemesinde asit doz grupları
+kiraz1$grup <- ordered(kiraz1$grup, levels = c("K", "A", "B"))
+kiraz2$grup <- ordered(kiraz2$grup, levels = c("K", "A", "B"))
+
+# Örnek 5.5: Kiraz meyve ağırlığı histogramları
+oldpar <- par(mfrow=c(1,2))
+hist(kiraz1$magr, col="gray", prob=T,
+  xlab="Ağırlık (g)", ylab="Frekans", main="Deneme 1")
+lines(density(kiraz1$magr), lwd=3, col="blue")
+hist(kiraz2$magr, col="gray", prob=T,
+  xlab="Ağırlık (g)", ylab="Frekans", main="Deneme 2")
+lines(density(kiraz2$magr), lwd=3, col="blue")
+par(oldpar)
+
+# Örnek 5.6: Kiraz meyve ağırlığı kutu-bıyık grafikleri
+oldpar <- par(mfrow=c(1,2))
+boxplot(kiraz1$magr, horizontal=T, col="gray", border="blue",
+   main="Deneme 1 Kutu-bıyık Grafiği", xlab="Ağırlık", ylab="")
+boxplot(kiraz2$magr, horizontal=T, col="gray", border="blue",
+   main="Deneme 2 Kutu-bıyık Grafiği", xlab="Ağırlık", ylab="")
+par(oldpar)
+
+# Örnek 5.7a: Kiraz meyve ağırlığı Q-Q grafikleri
+oldpar <- par(mfrow=c(1,2))
+qqnorm(kiraz1$magr, 
+    xlab="Teorik Kantiller", ylab="Örneklem Kantilleri",
+    main="Deneme 1 Q-Q Grafiği")
+qqline(kiraz1$magr, col=4, lwd=2)
+qqnorm(kiraz2$magr, 
+    xlab="Teorik Kantiller", ylab="Örneklem Kantilleri",
+    main="Deneme 2 Q-Q Grafiği")
+qqline(kiraz2$magr, col=4, lwd=2)
+par(oldpar)
+
+# Örnek 5.7b: Kalıntılara ait Q-Q grafikleri
+oldpar <- par(mfrow=c(1,2))
+model1 <- lm(magr~grup, data=kiraz1)
+model2 <- lm(magr~grup, data=kiraz2)
+qqnorm(residuals(model1)); qqline(residuals(model1))
+qqnorm(residuals(model2)); qqline(residuals(model2)) 
+par(oldpar)
+
+# Örnek 5.9a: Kiraz meyve ağırlıkları açıklayıcı istatistikler 1
+summary(kiraz1$magr)
+summary(kiraz2$magr)
+
+# Örnek 5.9b: Kiraz meyve ağırlıkları açıklayıcı istatistikler 2
+if(!require(psych)){install.packages("psych"); require(psych)}
+describe(kiraz1$magr)
+describe(kiraz2$magr)
+describeBy(kiraz1$magr,  group=kiraz1$grup,  digits= 2)
+describeBy(kiraz2$magr,  group=kiraz2$grup,  digits= 2)
+
+# Örnek 5.9c: Kiraz meyve ağırlıkları açıklayıcı istatistikler 3
+if(!require(Rmisc)){install.packages("Rmisc"); require(Rmisc)}
+
+summarySE(data=kiraz1, "magr",
+  groupvars="grup", conf.interval=0.95)
+summarySE(data=kiraz2, "magr",
+  groupvars="grup", conf.interval=0.95)
+
+# Örnek 5.9d: Kiraz meyve ağırlıkları açıklayıcı istatistikler 4
+if(!require(FSA)) {install.packages("FSA"); require(FSA)}
+Summarize(magr ~ grup,  data=kiraz1)
+
+# Örnek 5.9e: Kiraz meyve ağırlıkları açıklayıcı istatistikler 5
+if(!require(dplyr)){install.packages("dplyr")
+  require(dplyr)}
+
+group_by(kiraz1, grup) %>%
+ summarise(
+   count = n(),
+   mean = mean(magr, na.rm = TRUE),
+   var = var(magr, na.rm = TRUE),
+   sd = sd(magr, na.rm = TRUE),
+   median = median(magr, na.rm = TRUE),
+   IQR = IQR(magr, na.rm = TRUE))
+# A tibble: 3 x 7
+group_by(kiraz2, grup) %>%
+ summarise(
+   count = n(),
+   mean = mean(magr, na.rm = TRUE),
+   var = var(magr, na.rm = TRUE),
+   sd = sd(magr, na.rm = TRUE),
+   median = median(magr, na.rm = TRUE),
+   IQR = IQR(magr, na.rm = TRUE))
+# A tibble: 3 x 7
+ 
+# Örnek 5.10a: Genel varsayım kontrolü 1
+if(!require(gvlma)){install.packages("gvlma"); require(gvlma)}
+model1 <- lm(magr~grup, data=kiraz1)
+gvkont1 <- gvlma(model1, alphalevel = 0.05) 
+summary(gvkont1)
+
+# Örnek 5.10b: Genel varsayım kontrolü 2
+model2 <- lm(magr~grup, data=kiraz2)
+gvkont2 <- gvlma(model2, alphalevel = 0.05) 
+summary(gvkont2)
+
+# Örnek 5.11: Varsayım kontrol grafikleri
+opar <- par(mfrow=c(1,2))
+plot(gvkont1)
+plot(gvkont2)
+par(opar)
+
+# Örnek 5.12a: Normallik testi 1
+shapiro.test(kiraz1$magr)
+shapiro.test(kiraz2$magr)
+
+# Örnek 5.12b: Normallik testi 2
+model1 <- lm(magr~grup, data=kiraz1)
+shapiro.test(model1$residual)   
+model2 <- lm(magr~grup, data=kiraz2)
+shapiro.test(model2$residual) 
+
+# Örnek 5.12c: Normallik testi 3
+# nortest paketini yükle
+if(!require(nortest))
+  {install.packages("nortest"); require(nortest)}
+# ad.test fonksiyonunu çalıştır
+ad.test(kiraz1$magr)
+ad.test(kiraz2$magr)
+
+# Örnek 5.12d: Normallik testi 4
+if(!require(fBasics))
+  {install.packages("fBasics"); require(fBasics)}
+jarqueberaTest(model1$resid)
+
+# Örnek 5.13a: Grup varyansları homojenlik testi 1
+if(!require(car)){install.packages("car"); require(car)}
+leveneTest(magr~grup, data=kiraz1)
+leveneTest(magr~grup, data=kiraz2)
+
+# Örnek 5.13b: Grup varyansları homojenlik testi 2
+if(!require(HH)){install.packages("HH"); require(HH)}
+hovBF(magr~grup, data=kiraz1)
+hovBF(magr~grup, data=kiraz2)
+
+# Örnek 5.13c: Grup varyansları homojenlik testi 3
+bartlett.test(magr~grup, data=kiraz1)
+bartlett.test(magr~grup, data=kiraz2)
+
+# Örnek 5.13d: Grup varyansları homojenlik testi 4
+fligner.test(magr~grup, data=kiraz1)
+fligner.test(magr~grup, data=kiraz2)
+
+# Örnek 5.14: Örneklemlerde gözlemlerin bağımsızlık testi
+if(!require(car)) {install.packages("car"); require(car)}
+model1 <- lm(magr~grup, data=kiraz1)
+durbinWatsonTest(model1)
+model2 <- lm(magr~grup, data=kiraz2)
+durbinWatsonTest(model2)
+
+# Örnek 6.1: Ortalama yöntemi ile sıra değeri atama 
+x <- c(14,10,11,14,16,19,18,17,15,17,20,14,13,16,19)
+x
+rxa <- rank(x, ties.method="average")
+rxa
+
+# Örnek 6.2: Sıralama işlemi 
+# Bağımlılık – Örnek: 6.1
+xs <- sort(x)
+xs
+
+# Örnek 6.3: Sıralı gözlemlere sıra değeri atama
+# Bağımlılık – Örnek: 6.2
+rxa <- rank(xs, ties.method="average")
+rxa
+
+# Örnek 6.4: Farklı yöntemlerle sıra değeri atama
+rxf <- rank(xs, ties.method="first") #Öndeki kazanır
+rxf
+rxl <- rank(xs, ties.method="last")  #Sondaki kazanır
+rxl
+rxmin <- rank(xs, ties.method="min")   #Minimum yöntemi
+rxmin
+rxmax <- rank(xs, ties.method="max")   #Maksimum yöntemi
+rxmax
+
+# Örnek 6.5: Rastlantısal yöntemle sıra değeri atama
+rxr1 <- rank(xs, ties.method="random") #Rastlantısal yöntem
+rxr1
+rxr2 <- rank(xs, ties.method="random")
+rxr2
+
+# Örnek 6.6: Eksik değerli gözlemlere sıra değeri atama
+xs <- c(10, 11, 13, NA, 14, 14, 14, 15, 16, 16, 17, 17, 
+        18, 19, NA, 19, 20)
+rank(xs, ties.method="min")
+rank(xs, ties.method="min", na.last=FALSE)
+rank(xs, ties.method="min", na.last="keep")
+rank(xs, ties.method="min", na.last=NA)
+
+# Örnek 6.7: Oransal sıra değeri atama
+x <- c(14,10,11,14,16,19,18,17,15,17,20,14,13,16,19)
+rank2 <- function(x) 
+    trunc(rank(x, na.last = NA))/sum(rank(x, na.last = NA))
+rxp <- rank2(x)
+rxp
+
+# Örnek 6.8: order fonksiyonu kullanma
+x <- c(14,10,11,14,16,19,18,17,15,17,20,14,13,16,19)
+x
+order(x)
+
+# Örnek 6.9: order ve sort fonksiyonları
+x[order(x)] 
+sort(x)
+
+# Örnek 6.10: Karakter dizesi verilerine sıra değeri atama
+x <- c("Adana","Osmaniye","Mersin","Adana","Mersin","Mersin")
+rank(x)
+
+# Örnek 7.1: İşaret testinde olasılık hesaplama
+n <- 9
+s <- 4
+res <- signtest.prob(n=n, s=s, alternative="two.sided")
+res$p
+
+# Örnek 7.2: Z istatistiği olasılığı
+z <- 2.108878
+1-pnorm(z)
+
+# Örnek 7.3a: sign.test fonksiyonu ile işaret testi 
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+sign.test(x, mu=3, alternative="two.sided", conf.level=0.95)
+
+# Örnek 7.3b: BSDA paketi ile işaret testi
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+if(!require(BSDA)) install.packages("BSDA")
+SIGN.test(x, md=3, alternative="two.sided", conf.level=0.95)
+
+# Örnek 7.3c: DescTools paketi ile işaret testi
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+if(!require(DescTools)) install.packages("DescTools")
+SignTest(x,  mu=3, alternative="two.sided", conf.level=0.95)
+
+# Örnek 7.3d: signmedian.test paketi ile işaret testi
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+if(!require(signmedian.test)){
+install.packages("signmedian.test")}
+signmedian.test (x, mu = 3, alternative = "two.sided",  
+conf.level = 0.95, exact = TRUE)
+#(x!=3) = 9, mu = 3, p-value = 1
+
+# Örnek 7.4a: Büyük örneklem için BSDA ile işaret testi
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+
+if(!require(BSDA)) install.packages("BSDA")
+SIGN.test(x, md=1.8, alternative="greater", conf.level=0.95)
+
+# Örnek 7.4b: Büyük örneklem için DescTools ile işaret testi
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+
+if(!require(DescTools)) install.packages("DescTools")
+SignTest(x,  mu=1.8, alternative="greater", conf.level=0.95)
+
+# Örnek 7.4c:Büyük örneklemde signmedian.test ile işaret testi 1
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+
+if(!require(signmedian.test)){
+  install.packages("signmedian.test")
+  library(signmedian.test)}
+signmedian.test (x, mu = 1.8, alternative = "greater",  
+  conf.level = 0.99, exact = TRUE)
+
+# Örnek 7.4d:Büyük örneklemde signmedian.test ile işaret testi 2
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+
+if(!require(signmedian.test))
+{install.packages("signmedian.test")}
+
+signmedian.test (x, mu = 1.8, alternative = "greater",  
+  conf.level = 0.95, exact = FALSE)
+#(x>1.8) = 26, mu = 1.8, p-value = 0.01748
+
+# Örnek 7.4e: Büyük örneklemde bulanık işaret testi 
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+m0 <- 3 
+if(!require(fuzzyRankTests))
+  {install.packages("fuzzyRankTests")}
+
+fuzzy.sign.test(x, mu = m0, alternative = "two.sided")
+
+# Örnek 7.5a: İşaret testi için olasılık hesaplama 1
+psignrank(q=5, n=12)
+
+# Örnek 7.5b: İşaret testi için olasılık hesaplama 2
+1-psignrank(q=5, n=12)
+
+# Örnek 7.5c: İşaret testi için olasılık hesaplama 3
+2*min(psignrank(q=5, n=12), 1-psignrank(q=5, n=12))
+
+# Örnek 7.6: İşaret testi için olasılık hesaplama 3
+m0 <- 3
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+d <- x-m0
+pratt.ranks(d)
+
+# Örnek 7.7: WSRT için hesaplamalar
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+m0 <- 3
+d <- x-m0						#farklar
+d
+d <- d[which(d!=0)]				#0 olmayan farklar
+d
+md <- abs(d)					#mutlak farklar
+md
+rd <- rank(md)					#sıralar
+rd
+sign(d)						#işaretler
+srd <- sign(d) * rank(md) 			#işaretli sıralar
+srd
+wneg <- sum(rd[which(srd<0)])			# W- toplamı
+wneg
+wpos <- sum(rd[which(srd>0)])			#W+ toplamı
+wpos
+
+# Örnek 7.8a: Z testi için olasılık hesaplama 1
+1-pnorm(-3.016473, lower.tail=F)
+
+# Örnek 7.8b: Z testi için olasılık hesaplama 2
+1-pnorm(-3.023724, lower.tail=F)
+
+# Örnek 7.9a: WSRT testi 1
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+wilcox.test(x, mu=3, alternative="less", conf.level=0.95)
+
+# Örnek 7.9b: WSRT testi 2
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+wilcox.test(x, mu=3, alternative="greater",
+  conf.level=0.95, exact=FALSE)
+
+# Örnek 7.9c: WSRT testi 3
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+wilcox.test(x, mu=3, alternative="two.sided", 
+  conf.level=0.95, exact=FALSE)
+
+# Örnek 7.9d: WSRT testi 4
+x <- c(5, 3, 4, 2, 4, 2, 2, 4, 1, 2)
+if(!require(exactRankTests)) install.packages("exactRankTests")
+wilcox.exact(x, mu=3, alternative ="less",    
+  conf.level=0.95, exact=FALSE)
+# Kesin test uygulaması
+wilcox.exact(x, mu=3, alternative = "less", 
+  conf.level=0.95, exact=TRUE)
+
+# Örnek 7.10a: Büyük örneklemde WSRT testi 1
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+wilcox.test(x, mu=1.8, alternative="greater", conf.level=0.95)
+
+# Örnek 7.10b: Büyük örneklemde WSRT testi 2
+if(!require(exactRankTests)) install.packages("exactRankTests")
+wilcox.exact(x, mu=1.8, alternative = "greater",    
+  conf.level=0.95, exact=FALSE)
+
+# Örnek 7.10c: Büyük örneklemde WSRT testi 3
+if(!require(exactRankTests)) install.packages("exactRankTests")
+wilcox.exact(x, mu=1.8, alternative = "greater", 
+  conf.level=0.95, exact=TRUE)
+
+# Örnek 7.11: asht paketi ile WSRT testi 
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+
+if(!require(asht)) {install.packages("asht"); require(asht)}
+# Test fonksiyonu wsrTest'yi çalıştır
+wsrTest(x, mu = 1.8, conf.level = 0.95, conf.int=TRUE,
+ alternative = "greater", digits = NULL, tieDigits=8)
+
+# Örnek 7.12: wsrt.exact fonksiyonu ile WSRT kesin testi 
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)
+test <- wsrt.exact(x, mu=1.8, alternative="greater",
+   conf.level=0.95)
+test$p.value
+
+# Örnek 7.13: wsrt.exact sonuç nesnesi öznitelikleri 
+# Bağımlılık – Örnek: 7.12
+attributes(test)
+
+# Örnek 7.14: wsrt.exact ile güven aralıkları 
+# Bağımlılık – Örnek: 7.12
+test$pop.med.CI
+
+# Örnek 7.15: wsrt.approx ile WSRT yaklaşma testi 
+x <- c(4.14, 1.07, 0.36, 0.02, 2.50, 4.48, 3.77, 3.58, 1.60,
+4.22, 1.60, 0.84, 6.37, 3.01, 1.99, 1.80, 2.59, 2.43, 1.93,
+5.31, 3.28, 4.83, 2.82, 0.72, 2.61, 2.42, 1.54, 0.90, 2.55,  
+6.52, 2.26, 0.56, 1.51, 1.30, 4.23, 2.70,5.14, 4.49, 8.81)   
+
+test1 <- wsrt.approx(x, mu=1.8, alternative="greater",
+   conf.level=0.95, c.cont=0, c.ties=FALSE)
+test1$p.value
+
+# Örnek 7.16: wsrt.approx sonuç nesnesi öznitelikleri
+# Bağımlılık – Örnek: 7.15
+attributes(test1)
+
+# Örnek 7.17: wsrt.approx sonuç nesnelerini görüntüleme
+# Bağımlılık – Örnek: 7.15
+head(test1$atable, 5)
+
+# Örnek 7.18: Bağlar için düzeltmeli WSRT testi
+# Bağımlılık – Örnek: 7.15
+test2 <- wsrt.approx(x, mu=1.8, alternative="greater",
+   conf.level=0.95, c.cont=1/2, c.ties=FALSE)
+test2$p.value
+test3 <- wsrt.approx(x, mu=1.8, alternative="greater",
+   conf.level=0.95, c.cont=1/2, c.ties=TRUE)
+test3$p.value
+test4 <- wsrt.approx(x, mu=1.8, alternative="greater",
+   method="pratt", conf.level=0.95, c.cont=1/2, c.ties=TRUE)
+test4$p.value
+
+# Örnek 8.1: İşaret testi için olasılık hesaplama
+n <- 9
+s <- 4
+res <- signtest.prob(n=n, s=s, alternative="greater")
+res$p
+
+# Örnek 8.2: BSDA paketi ile eşleştirilmiş örneklem işaret testi
+A <- c(157.5, 84.5, 134.0, 74.0, 108.0, 107.5, 
+  106.0,163.0,54.0)
+B <- c(164.5, 51.5, 250.0, 139.0, 113.0,124.5, 
+  95.5, 70.5, 30.5)
+
+if(!require(BSDA)) install.packages("BSDA")
+SIGN.test(x=B, y=A, alternative="greater", conf.level=0.95)
+
+# Örnek 8.3: WSRT testi olasılık hesaplama
+n <- 9
+w <- 22
+p <- 1 – psignrank(w – 1, n)
+p
+
+# Örnek 8.4a: Z için olasılık hesaplama
+1-pnorm(0.862248, lower.tail=FALSE)
+
+# Örnek 8.4b: Z için olasılık hesaplama
+1-pnorm(0.8524497, lower.tail=FALSE)
+
+# Örnek 8.5a: exactRankTests paketi ile işaret testi
+A <- c(157.5, 84.5, 134.0, 74.0, 108.0, 107.5, 
+       106.0,163.0,54.0)
+B <- c(164.5, 51.5, 250.0, 139.0, 113.0,124.5, 
+       95.5, 70.5, 30.5)
+if(!require(exactRankTests)){
+  install.packages("exactRankTests"); 
+  library("exactRankTests")}
+wilcox.exact(x=A, y=B, alternative = "greater", 
+  paired=TRUE, conf.level=0.95, exact=TRUE)
+
+# Örnek 8.5b: wsrt.exact fonksiyonu ile işaret testi
+# Bağımlılık – Fonksiyon: 8.4
+A <- c(157.5, 84.5, 134.0, 74.0, 108.0, 107.5, 
+       106.0,163.0,54.0)
+B <- c(164.5, 51.5, 250.0, 139.0, 113.0,124.5, 
+       95.5, 70.5, 30.5)
+wsrt.exact(x=A, y=B, alternative="greater", conf.level=0.95)
+
+# Örnek 8.6a: exactRankTests fonksiyonu ile işaret testi
+x2016 <- c(4.32, 13.39, 16.36, 7.10, 0.07, 2.02, 0.10, 0.52, 
+   0.64, 2.15, 3.70, 4.80, 0.85, 0.61, 0.26, 0.61, 0.52, 
+   3.64, 1.72, 2.58, 0.15, 0.47, 0.62, 0.99, 2.43, 4.02,
+   16.13, 7.30, 7.98, 24.37, 12.03, 9.05, 0.25)
+
+x2017 <- c(13.60, 9.10, 16.36, 7.80, 1.97, 3.81, 0.10, 0.47,
+   0.21, 2.23, 2.82, 5.05, 0.86, 0.86, 0.96, 0.06, 1.23, 
+   2.42, 3.18, 1.06, 1.74, 2.76, 0.93, 0.81, 3.09, 5.44, 
+   15.13, 5.25, 4.27, 23.37, 18.22, 7.80, 9.86)
+
+if(!require(exactRankTests)) install.packages("exactRankTests")
+wilcox.exact(x=x2016, y=x2017, alternative = "greater", 
+  paired=TRUE, conf.level=0.95, exact=FALSE)
+
+# Örnek 8.6b: exactRankTests fonksiyonu ile işaret testi
+# Bağımlılık – Örnek 8.6a
+wilcox.exact(x=x2016, y=x2017, alternative = "greater", 
+  paired=TRUE, conf.level=0.95, exact=TRUE)
+
+# Örnek 8.6c: exactRankTests fonksiyonu ile işaret testi
+# Bağımlılık – Örnek 8.6a; Fonksiyon: 7.5 
+test1 <- wsrt.approx(x=x2016, y=x2017, method="wilcoxon",
+  alternative="greater", conf.level=0.95, c.cont=0,
+  c.ties=FALSE)
+test1$p.value
+test2 <- wsrt.approx(x=x2016, y=x2017, method="wilcoxon",
+  alternative="greater", conf.level=0.95, c.cont=0,
+  c.ties=TRUE)
+test2$p.value
+test3 <- wsrt.approx(x=x2016, y=x2017, method="wilcoxon",
+  alternative="greater", conf.level=0.95, c.cont=1/2,
+  c.ties=TRUE)
+test3$p.value
+test4 <- wsrt.approx(x=x2016, y=x2017, method="pratt",
+  alternative="greater", conf.level=0.95, c.cont=1/2,
+  c.ties=TRUE)
+test4$p.value
+
+# Örnek 8.7: Permütasyon testi uygulaması
+# Bağımlılık – Fonksiyon: 8.1
+x1 <- c(2,5,3,4)
+x2 <- c(4,6,7,5)
+l <- length(x1)
+dset <- data.frame(gozlem=c(x1,x2), 
+   grup = c(rep('x',l), rep('y',l)))
+perm.test(dset$gozlem,dset$grup, stat="mean", N=1000)
+perm.test(dset$gozlem,dset$grup,stat="median", N=1000)
+
+# Örnek 8.8: Kedi su tüketimi verisinde permütasyon testi 
+# Bağımlılık – Fonksiyon: 8.1
+A <- c(157.5, 84.5, 134.0, 74.0, 108.0, 107.5, 
+       106.0, 163.0, 54.0)
+B <- c(164.5, 51.5, 250.0, 139.0, 113.0, 124.5,
+       95.5, 70.5, 30.5)
+l <- length(A)
+ds <- data.frame(gozlem=c(A,B), 
+  grup = c(rep('A', l), rep('B', l)))
+perm.test(ds$gozlem,ds$grup, stat="mean", N=20000)
+perm.test(ds$gozlem,ds$grup,stat="median", N=20000)
+
+# Örnek 8.9: Su kirliliği verisinde permütasyon testi 
+# Bağımlılık – Fonksiyon: 8.1
+x2016 <- c(4.32, 13.39, 16.36, 7.10, 0.07, 2.02, 0.10, 0.52, 
+   0.64, 2.15, 3.70, 4.80, 0.85, 0.61, 0.26, 0.61, 0.52, 
+   3.64, 1.72, 2.58, 0.15, 0.47, 0.62, 0.99, 2.43, 4.02,
+   16.13, 7.30, 7.98, 24.37, 12.03, 9.05, 0.25)
+x2017 <- c(13.60, 9.10, 16.36, 7.80, 1.97, 3.81, 0.10, 0.47,
+   0.21, 2.23, 2.82, 5.05, 0.86, 0.86, 0.96, 0.06, 1.23, 
+   2.42, 3.18, 1.06, 1.74, 2.76, 0.93, 0.81, 3.09, 5.44, 
+   15.13, 5.25, 4.27, 23.37, 18.22, 7.80, 9.86)
+l <- length(x2016)
+df <- data.frame(gozlem=c(x2016,x2017), 
+   grup = c(rep("x2016",l), rep("x2017",l)))
+perm.test(df$gozlem,df$grup, stat="mean", N=10000)
+perm.test(df$gozlem, df$grup, stat="median", N=10000)
+
+# Örnek 8.10: Toprak pH verisinde MWWT 
+phA <- c(7.5, 7.8, 7.3, 7.4, 8.0, 7.3, 7.6, 7.6, 7.8, 7.6)
+phB <- c(7.8, 8.0, 7.5, 7.7, 7.6, 7.9, 8.2, 7.6)
+# correct=TRUE seçeneği süreklilik düzeltmesi yapılır 
+wilcox.test(phA, phB, alternative="two.sided", 
+   conf.level=0.95, correct=TRUE, exact=FALSE)
+
+# Örnek 8.11: Muzda gübre denemesi verisinde MWWT 
+x1 <- c(39, 30, 35, 35, 30, 43, 48, 56, 40, 34, 32, 59, 43, 
+        43, 52, 52, 44, 53, 52, 38)
+x2 <- c(35, 25, 36, 33, 25, 34, 31, 39, 24, 38, 29, 39, 31, 
+        31, 34, 29, 38, 29, 32, 24)
+wilcox.test(x1, x2, alternative="greater",
+   conf.level=0.99, correct=TRUE, exact=FALSE)
+
+# Örnek 8.12: Muzda gübre deneme verisini uzun biçime dönüştürme
+x1 <- c(39, 30, 35, 35, 30, 43, 48, 56, 40, 34, 32, 59, 43, 
+        43, 52, 52, 44, 53, 52, 38)
+x2 <- c(35, 25, 36, 33, 25, 34, 31, 39, 24, 38, 29, 39, 31, 
+        31, 34, 29, 38, 29, 32, 24)
+x <- c(x1,x2)
+grup <- as.factor(c(rep(1, length(x1)), rep(2, length(x2))))
+xds <- data.frame(x,grup)
+head(xds, 3)
+tail(xds, 3)
+
+# Örnek 8.13: Muzda gübre deneme verisinde MWWT 
+# Bağımlılık – Örnek: 8.12
+wilcox.test(x~grup, alternative="greater",
+   conf.level=0.99, correct=TRUE, exact=FALSE)
+
+# Örnek 8.14: Muzda gübre deneme verisinde MWWT 
+# Bağımlılık – Örnek: 8.12
+wilcox.test(x~grup, alternative="greater",
+   conf.level=0.99, correct=TRUE, exact=TRUE)
+
+# Örnek 8.15: Muzda gübre deneme verisinde MWWT 
+# Bağımlılık – Örnek: 8.12
+#
+if(!require(exactRankTests)) 
+  {install.packages("exactRankTests")}
+wilcox.exact(x1,x2, alternative="greater",
+   exact=FALSE, conf.level = 0.99)
+
+wilcox.exact(x1,x2, alternative="greater",
+  exact=TRUE, conf.level = 0.99)
+
+# Örnek 8.16: Muzda gübre deneme verisinde MWWT 
+# Bağımlılık – Örnek: 8.12
+if(!require(sjstats)) 
+  {install.packages("sjstats")}
+mwu(x,grup, data=xds, distribution="asymptotic")
+# Mann-Whitney-U-Test
+
+# Örnek 8.17: Toprak pH verisinde normallik kontrolü
+phA <- c(7.5, 7.8, 7.3, 7.4, 8.0, 7.3, 7.6, 7.6, 7.8, 7.6)
+phB <- c(7.8, 8.0, 7.5, 7.7, 7.6, 7.9, 8.2, 7.6)
+# car paketini yükle
+if(!require(car)) {install.packages("car"); library(car)}
+par(mfrow=c(2,2))
+hist(phA, main = "phA Histogram")
+hist(phB, main = "phB Histogram")
+qqPlot(phA, main = "phA Q-Q")
+qqPlot(phB, main = "phB Q-Q")
+
+# Örnek 8.18: Toprak pH verisi yoğunluk grafikleri
+if(!require(ggpubr)) 
+  {install.packages("ggpubr"); library(ggpubr)}
+ggdensity(xds, x = "x",
+   add = "median", rug = TRUE,
+   color = "grup", fill = "grup",
+   palette = c("orange", "blue"))
+
+# Örnek 8.19: Toprak pH örneklem dağılışları benzerlik testi
+ks.test(phA, phB)
+
+# Örnek 9.1: Kavun denemesi verisini düzenleme
+xa <- c(790,810,800,815,805,825)
+xb <- c(820,808,810,812,815,805)
+xc <- c(770,750,765,780,800,770)
+xd <- c(760,770,750,770,760,765)
+kavagr <- c(xa, xb, xc, xd)
+budgrp <- c(rep("A",6), rep("B",6), rep("C",6), rep("D",6))
+budgrp <- as.factor(budgrp)
+kavun <- data.frame(kavagr, budgrp)
+head(kavun)
+tail(kavun)
+
+# Örnek 9.2: Kavun denemesi tanımlayıcı istatistikler
+# Bağımlılık – Örnek: 9.1
+#
+if(!require(dplyr)) {
+  install.packages("dplyr"); require(dplyr)}
+group_by(kavun, budgrp) %>%
+ summarise(
+   n = n(),
+   ortalama = mean(kavagr, na.rm = TRUE),
+   std.sapma = sd(kavagr, na.rm = TRUE),
+   ortanca = median(kavagr, na.rm = TRUE),
+   ÇADG = IQR(kavagr, na.rm = TRUE)
+ )
+
+# Örnek 9.3a: Kavun denemesi kutu-bıyık grafikleri
+# Bağımlılık – Örnek: 9.1
+if(!require(ggpubr)){
+   install.packages("ggpubr"); library(ggpubr)}
+ggboxplot(kavun, x = "budgrp", y = "kavagr", color = "budgrp",
+   palette = c("red", "blue", "darkblue", "black"),
+   order = c("A", "B", "C","D"),
+   ylab = "Ağırlık", xlab = "Budama Yöntemi")
+
+# Örnek 9.3b: Kavun denemesi hata çubuklu serpilme grafikleri
+# Bağımlılık – Örnek: 9.1
+if(!require(ggpubr)) install.packages("ggpubr")
+ggline(kavun, x = "budgrp", y = "kavagr", 
+   add = c("mean_se", "jitter"), 
+   order = c("A", "B", "C","D"),
+   ylab = "Ağırlık", xlab = "Budama Yöntemi")
+
+# Örnek 9.4a: Kavun denemesi için KWHT 1
+# Bağımlılık – Örnek: 9.1
+kruskal.test(x=kavagr, g=budgrp)
+
+# Örnek 9.4b: Kavun denemesi için KWHT 2
+# Bağımlılık – Örnek: 9.1
+kruskal.test(kavagr ~ budgrp, data=kavun)
+
+# Örnek 9.5: Kavun denemesi için KWHT önemlilik olasılığı
+# Bağımlılık – Örnek: 9.1
+H <- kruskal.test(kavagr ~ budgrp, data=kavun)$statistic
+if(!require(SuppDists)){
+   install.packages("SuppDists"); library(SuppDists)}
+n <- tabulate(as.factor(budgrp))
+pKruskalWallis(H, c=length(n), N=sum(n), U=sum(1/n),
+   lower.tail=FALSE)
+
+# Örnek 9.6: Kavun denemesi için KWHT sonrası test
+# Bağımlılık – Örnek: 9.1
+pairwise.wilcox.test(x=kavun$kavagr, g=kavun$budgrp, 
+  p.adjust.method = "none", exact=FALSE)
+
+# Örnek 9.7: Kavun denemesi için KWHT sonrası test
+# Bağımlılık – Örnek: 9.1
+pairwise.wilcox.test(kavun$kavagr, kavun$budgrp, 
+  p.adjust.method = "bonferroni", exact=FALSE)
+
+# Örnek 9.8: PMCMRplus paketi ile KWHT sonrası testler 1
+# Bağımlılık – Örnek: 9.1
+if(!require(PMCMRplus))
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+kwAllPairsNemenyiTest(kavun$kavagr, kavun$budgrp, 
+  dist="Tukey", p.adjust.method = "bonferroni")
+
+# Örnek 9.9: PMCMRplus paketi ile KWHT sonrası testler 2
+# Bağımlılık – Örnek: 9.1
+if(!require(PMCMRplus))
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+kwAllPairsNemenyiTest(kavun$kavagr, kavun$budgrp, 
+  dist="Chisquare", p.adjust.method = "bonferroni")
+
+# Örnek 9.10: PMCMRplus paketi ile KWHT sonrası testler 3
+if(!require(PMCMRplus))
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+sonuc <- kwAllPairsConoverTest(kavun$kavagr, kavun$budgrp, 
+  p.adjust.method = "bonferroni")
+barPlot(sonuc, alpha = 0.05, col="gray")
+
+# Örnek 9.11: FSA paketi ile KWHT sonrası Dunn testi
+# Bağımlılık – Örnek: 9.1
+if(!require(FSA)){install.packages("FSA"); library(FSA)}
+dunnTest(kavun$kavagr, kavun$budgrp)
+
+# Örnek 9.12: pgirmess ile KWHT sonrası Siegel-Castellan testi
+# Bağımlılık – Örnek: 9.1
+if(!require(pgirmess))
+  {install.packages("pgirmess"); library(pgirmess)}
+kruskalmc(resp=kavun$kavagr, categ=kavun$budgrp, 
+  probs = 0.05, cont=NULL)
+
+# Örnek 9.13: Mısır verim deneme verisi
+# Grup kategorileri yani faktör düzeylerini adlandır
+yontem <- c(1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,
+       3,3,3,3,3,3,3,4,4,4,4,4,4,4,4)
+yontem <- as.factor(yontem)
+# Gözlem değerlerini aynı sıra ile gir
+verim <- c(83,91,94,89,89,96,91,92,90,91,90,81,83,84,83,88,91,
+       89,84,101,100,91,93,96,95,94,78,82,81,77,79,81,80,81)
+misir <- data.frame(yontem, verim)
+# Verileri incele
+head(misir, 5) 
+tail(misir,5)
+
+# Örnek 9.14: agricolae paketi ile ortanca testi
+if(!require(agricolae))
+  {install.packages("agricolae")
+  library(agricolae)}
+sonuc <- with(misir, Median.test(y=verim, trt=yontem))
+
+# Örnek 9.15: Grup ortancaları ve hata çubukları grafiği
+z <- bar.err(sonuc$medians, variation="range", ylim=c(0,120),
+     space=1, border=4, col=3, density=10, angle=45)
+
+# Örnek 9.16: Grup ortancaları için çoklu karşılaştırma
+sonuc <-with(misir, Median.test(verim, yontem, 
+        group=FALSE, console=FALSE))
+print(sonuc$comparison)
+
+# Örnek 9.17: RVAideMemoire paketi ile ortanca testi
+if(!require(RVAideMemoire))
+  {install.packages("RVAideMemoire"); library(RVAideMemoire)}
+mood.medtest(verim~yontem, data=misir, exact=FALSE) 
+
+# Örnek 9.17: RVAideMemoire paketi ile ortanca testi
+if(!require(coin)){install.packages("coin"); library(coin)}
+median_test(verim~yontem, data=misir)
+
+# Örnek 9.18: Ortanca testinden sonra çoklu karşılaştırma
+if(!require(rcompanion))
+  {install.packages("rcompanion"); library(rcompanion)}
+sonuc <- pairwiseMedianTest(verim~yontem, data=misir,
+  exact=NULL, method="fdr")
+sonuc
+# Yukarıdaki sonucu matris biçiminde görüntüle
+sonucmat <- pairwiseMedianMatrix(verim~yontem, data=misir,
+  exact=NULL, method="fdr")
+sonucmat
+# Karşılaştırma sonucunu grup harfleri ile görüntüle
+if(!require(multcompView))
+  {install.packages("multcompView"); library(multcompView)}
+multcompLetters(sonucmat$Adjusted,  
+  compare="<", threshold=0.05, Letters=letters)
+
+# Örnek 9.19: clinfun paketi ile Jonckheere-Terpstra testi
+h1 <-c(24, 26)
+h2 <-c(50, 26, 34, 46, 73)
+h3 <-c(75, 80, 72) 
+h4 <-c(95, 102, 80) 
+x <- c(h1, h2, h3, h4) 
+n <- c(length(h1), length(h2), length(h3), length(h4))
+hbtgrp <- as.ordered(factor(rep(1:length(n),n)))
+if(!require(clinfun)) 
+  {install.packages("clinfun"); library(clinfun)}
+jonckheere.test(x, hbtgrp, alternative="two.sided")
+
+# Örnek 9.20: KWHT testi
+# Bağımlılık – Örnek: 9.19
+kwht.sonuc <- kruskal.test(x, hbtgrp, alternative="two.sided") 
+kwht.sonuc 
+
+# Örnek 9.21: StatCharrms paketi ile Jonckheere-Terpstra testi
+b1 <-c(24, 26)
+b2 <-c(50, 26, 34, 46, 73)
+b3 <-c(75, 80, 72)
+b4 <-c(95, 102, 80) 
+kussayisi <- c(b1, b2, b3, b4) 
+n <- c(length(h1), length(h2), length(h3), length(h4))
+bolgegrp <- as.ordered(factor(rep(1:length(n),n)))
+xds <- data.frame(kussayisi, bolgegrp)
+if(!require(StatCharrms))  
+  {install.packages("StatCharrms"); library(StatCharrms)}
+sonuc <- jonckheereTerpstraTest(Data=xds, Treatment="bolgegrp",
+  Response="kussayisi", TestDirection="Both", AlphaLevel=0.05)
+sonuc
+
+# Örnek 9.22: Jonckheere-Terpstra testi için permütasyon
+b1 <-c(24, 26)
+b2 <-c(50, 26, 34, 46, 73)
+b3 <-c(75, 80, 72)
+b4 <-c(95, 102, 80) 
+kussayisi <- c(b1, b2, b3, b4) 
+n <- c(length(h1), length(h2), length(h3), length(h4))
+bolgeler <- as.ordered(factor(rep(1:length(n),n)))
+jkstat <- function(x, g) {
+    tmp <- (sign(outer(x, x, "-")) + 1) / 2
+    sum(tmp[g[row(tmp)] > g[col(tmp)]])
+}
+print(jstat <- jkstat(kussayisi, bolgeler))
+grp <- bolgeler ; veri <- kussayisi
+nsim <- 1e4-1
+jsim <- double(nsim)
+for (i in 1:nsim) {
+    simveri <- sample(veri, length(veri))
+    jsim[i] <- jkstat(simveri, grp)
+}
+phat <- mean(jsim >= jstat)
+(nsim * phat + 1) / (nsim + 1)
+nsim / (nsim + 1) * sqrt(phat * (1-phat) / nsim)
+cat("Hesaplama süresi: ", proc.time()[1], "saniye\n")
+
+# Örnek 9.23: İzotonik regresyon
+h1 <-c(24, 26)
+h2 <-c(50, 26, 34, 46, 73)
+h3 <-c(75, 80, 72)
+h4 <-c(95, 102, 80) 
+veri <- c(h1, h2, h3, h4) 
+n <- c(length(h1), length(h2), length(h3), length(h4))
+hbtgrp <- as.ordered(factor(rep(1:length(n),n)))
+grp <- as.ordered(as.factor(hbtgrp))
+mu0 <- mean(veri)
+sig0 <- sd(veri)
+n <- length(veri)
+ss.null <- sum((veri - mu0)^2)
+xbar <- sapply(split(veri, grp), mean)
+nbar <- sapply(split(veri, grp), length)
+k <- length(xbar)
+print(tstat <- test.stat(xbar, nbar))
+nsim <- 1e-3-1
+tsim <- double(nsim)
+for (i in 1:nsim) {
+   xbarsim <- rnorm(k, mu0, sig0 / sqrt(nbar))
+   tsim[i] <- test.stat(xbarsim, nbar)
+}
+phat <- mean(tsim >= tstat)
+(nsim * phat + 1) / (nsim + 1)
+nsim / (nsim + 1) * sqrt(phat * (1-phat) / nsim)
+cat("Hesaplama süresi: ", proc.time()[1], "saniye\n")
+
+# Örnek 9.24: İzotonik regresyon
+# Bağımlılık – Örnek: 9.23
+stripchart(veri ~ hbtgrp, method = "stack", col=4, pch=20)
+
+# Örnek 9.25: InsectSprays verisinin okunması 
+x <- read.table("C:/npbook/insectsprays.txt", head=T)
+x
+
+# Örnek 9.26: Olasılık verildiğinde Z değerinin bulunması 
+qnorm(0.5479452)
+
+# Örnek 9.27: van der Waerden’in Normal Kantil testi 
+setwd("C:/npbook")
+x <- read.table("insectsprays.txt", head=T)
+n <- nrow(x)*ncol(x)
+r <- matrix(rank(x), nrow=nrow(x), ncol=ncol(x)) #Sıralar
+colnames(r) <- LETTERS[1:6] 
+r 
+A <- qnorm(r/(n+1))   #Normal kantiller
+colnames(A) <- LETTERS[1:6]
+A
+Aj <- colSums(A)    #Grupların A değerleri toplamı
+Aj
+Ajo <- colMeans(A)  #Grupların A değerleri ortalamaları 
+Ajo
+S2 <- sum(A^2)/(n-1) #A varyansı (formül 1)
+S2
+S2 <- (1/(n-1))*sum((A-mean(A))^2) #A varyansı (formül 2)
+S2
+T <- 1/S2 *sum(Ajo^2*12)   #Test istatistiği
+T
+p.value <- pchisq(q=T, df=ncol(A)-1, lower.tail=FALSE)
+p.value			#Olasılık 
+
+# Örnek 9.28: PMCMRplus ile van der Waerden Kantil testi 
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+data(InsectSprays)
+vanWaerdenTest(x=InsectSprays$count, g=InsectSprays$spray)
+
+# Örnek 9.29a: PMCMRplus ile son testler 1 
+# Bağımlılık – Örnek: 9.28
+vanWaerdenAllPairsTest(count~spray, 
+  data=InsectSprays, p.adjust.method="none")
+
+# Örnek 9.29b: PMCMRplus ile son testler 2 
+# Bağımlılık – Örnek: 9.28
+#
+vanWaerdenAllPairsTest (count~spray, 
+  data=InsectSprays, p.adjust.method="bonferroni")
+
+# Örnek 9.30: Böcek sprey verisinde normallik kontrol grafikleri
+#
+data(InsectSprays)
+opar <- par(ask=TRUE)
+hist(InsectSprays$count, col="gray", main="Böcek Spreyleri")
+boxplot(count ~ spray, data=InsectSprays,
+ xlab="Sprey", ylab="Böcek Sayısı",   
+ main = "Böcek Spreyleri", varwidth=TRUE, col="gray")
+if(!require(ggpubr)) 
+  {install.packages("ggpubr"); library(ggpubr)}
+ggdensity(InsectSprays, x = "count",
+   add = "mean", rug = FALSE,
+   color = "spray", fill = "spray",
+   palette = terrain.colors(6))
+par(opar)
+
+# Örnek 9.31: Böcek sprey verisinde ANOVA ve diyagnostik 
+data(InsectSprays)
+model1 <- aov(count ~ spray, data=InsectSprays)
+summary(model1)
+opar <- par(ask=T, mfrow=c(2, 2), oma=c(0, 0, 1, 0))
+plot(model1)
+par(opar)
+
+# Örnek 9.32: Böcek sprey verisinde karekök dönüşümü ve ANOVA
+data(InsectSprays)
+model2 <- aov(sqrt(count) ~ spray, data = InsectSprays)
+summary(model2)
+opar <- par(ask=T, mfrow=c(2, 2), oma=c(0, 0, 1, 0))
+plot(model2)
+par(opar)
+
+# Örnek 10.1: Salam lezzet puanlama veri çerçevesi
+#
+blok <- rep(1:8, 4)# 8 blok 4 uygulamalı kod tanımı
+# uygulama adları ve tekerrürlerin tanımı 
+sc <- c(rep("A",8), rep("B",8), rep("C",8), rep("D", 8))
+# gözlem verileri
+lzp <- c(7,8,7,7,8,6,7,6,  6,7,5,6,7,7,8,5, 
+         8,9,9,10,9,9,8,7, 7,8,8,6,8,9,7,5)
+# grup, uygulama ile gözlem verinsinin tablo haline getirilmesi 
+salam <- data.frame(blok, sc, lzp)
+
+# Örnek 10.2: Salam lezzet puanlama verisini inceleme
+# Bağımlılık – Örnek: 10.1
+#
+head(salam,3)
+tail(salam,3)
+
+# Örnek 10.3: Salam lezzet puanlama açıklayıcı istatistikler
+# Bağımlılık – Örnek: 10.1
+if(!require(dplyr)) {install.packages("dplyr")}
+group_by(salam, sc) %>%
+ summarise(
+   n = n(),
+   ortalama = mean(lzp, na.rm = TRUE),
+   std.sapma = sd(lzp, na.rm = TRUE),
+   ortanca = median(lzp, na.rm = TRUE),
+   ÇADG = IQR(lzp, na.rm = TRUE)
+ )
+# A tibble: 4 x 6
+
+# Örnek 10.4: Salam lezzet puanlama histogramlar
+# Bağımlılık – Örnek: 10.1
+if(!require(lattice)) {install.package("lattice")}
+histogram(~ lzp | sc,  data=salam, 
+ layout=c(1,4), col="gray", xlab="Puan", ylab="Yüzde")
+
+# Örnek 10.5: Salam lezzet puanlama kutu-bıyık grafikleri
+# Bağımlılık – Örnek: 10.1
+boxplot(lzp~sc, data=salam, col=c(2,3,4,6),
+  ylab = "Puan", xlab = "Salam Çeşidi")
+
+# Örnek 10.6: Salam lezzet puanlama kutu-bıyık grafikleri
+# Bağımlılık – Örnek: 10.1
+if(!require(ggpubr)) install.packages("ggpubr")
+ggboxplot(salam, x = "sc", y = "lzp", color = "sc",
+  palette = c(2,3,4,6), lwd=1,
+  order = c("A", "B", "C", "D"),
+  ylab = "Puan", xlab = "Salam Çeşidi")
+
+# Örnek 10.7: Friedman testi
+# Bağımlılık – Örnek: 10.1
+friedman.test(y=lzp, groups=sc, blocks=blok)
+
+# Örnek 10.8: Iman ve Conover F testi
+# Bağımlılık – Örnek: 10.1
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); require(PMCMRplus)}
+friedmanTest(data=dfsalam, y=lzp, groups=sc, blocks=blok,
+  dist="FDist")
+
+# Örnek 10.9: Hizalı Friedman testi
+matsalam <- matrix(
+c(7,6,8,7,
+8,7,9,8,
+7,5,9,8,
+7,6,10,6,
+8,7,9,8,
+6,7,9,9,
+7,8,8,7,
+6,5,7,5),
+nrow=8, ncol=4, byrow=T,
+dimnames = list(uzman = as.character(1:8),
+cesit = LETTERS[1:4]))
+if(!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+if(!require(scmamp)) 
+  {BiocManager::install("scmamp", version = "3.8")}
+friedmanAlignedRanksTest(matsalam)
+
+# Örnek 10.10: Hizalı Friedman testi
+# Bağımlılık – Örnek: 10.1
+if(!require(PMCMRplus)) {
+   install.packages("PMCMRplus");
+   library(PMCMRplus)}
+frdAllPairsConoverTest(lzp, sc, blok, p.adjust="none")
+
+# Örnek 10.11: Düzeltme yöntemleri
+# Bağımlılık – Örnek: 10.10
+p.adjust.methods 
+
+# Örnek 10.12: Bonferroni düzeltmeli çoklu karşılaştırma
+# Bağımlılık – Örnek: 10.1
+if(!require(PMCMRplus)) {install.packages("PMCMRplus")}
+sonuc.conover <- frdAllPairsConoverTest(lzp, sc, blok,
+  p.adjust="bonferroni")
+sonuc.conover
+summary(sonuc.conover)
+
+# Örnek 10.13: Kendall’ın W Katsayısı
+matsalam <- matrix(
+c(7,6,8,7,
+8,7,9,8,
+7,5,9,8,
+7,6,10,6,
+8,7,9,8,
+6,7,9,9,
+7,8,8,7,
+6,5,7,5),
+nrow=8, ncol=4, byrow=T,
+dimnames = list(uzman = as.character(1:8),
+cesit = LETTERS[1:4]))
+if(!require(DescTools)) {install.packages("DescTools")}
+tmatsalam <- t(matsalam)
+KendallW(tmatsalam, TRUE, test=TRUE)
+detach(package:DescTools)
+
+# Örnek 10.14: Kendall’ın W Katsayısı
+# Bağımlılık – Örnek: 10.13
+if(!require(synchrony)) {install.packages("synchrony")}
+kendall.w(matsalam, quiet = FALSE)
+detach(package:synchrony)
+
+# Örnek 10.15: Quade testi
+blok <- rep( c(1,2,3,4,5,6,7,8), 4)
+sc <- c(rep("A",8), rep("B",8), rep("C",8), rep("D", 8))
+lzp <- c(7,8,7,7,8,6,7,6,  6,7,5,6,7,7,8,5, 
+         8,9,9,10,9,9,8,7, 7,8,8,6,8,9,7,5)
+salam <- data.frame(blok, sc, lzp)
+quade.test(lzp ~ sc | blok, data = salam)
+
+# Örnek 10.16: Quade testi sonrası testler 1
+# Bağımlılık – Örnek: 10.15
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+quadeAllPairsTest(y=salam$lzp, dist = "TDist",
+   groups = salam$sc, blocks = salam$blok,
+   p.adjust.method="none")
+
+# Örnek 10.17: Quade testi sonrası testler 2
+# Bağımlılık – Örnek: 10.15
+quadeAllPairsTest(y=salam$lzp, 
+   groups = salam$sc, blocks = salam$blok,
+   p.adjust.method="BH")
+
+# Örnek 10.18: Quade testi sonrası testler 3
+# Bağımlılık – Örnek: 10.15
+posttest <- quadeAllPairsTest(y=salam$lzp, dist = "TDist",
+   groups = salam$sc, blocks = salam$blok,
+   p.adjust.method="none")
+posttest1 <- as.matrix(posttest$p.value)
+posttest1
+if(!require(rcompanion)) 
+  {install.packages("rcompanion"); library(rcompanion)}
+posttest2 <- fullPTable(posttest1)
+posttest2
+if(!require(multcompView)) 
+  {install.packages("multcompView"); library(multcompView)}
+multcompLetters(posttest2, compare="<", threshold=0.05,
+   Letters=letters, reversed = FALSE)
+
+# Örnek 10.19: Durbin testi 
+x <- matrix(c(
+2,NA,NA,NA,3, NA, 3, 3, 3, NA, NA, NA, 3, NA, NA,
+1, 2, NA, NA, NA, 1, 1, NA, 1, 1,
+NA, NA, NA, NA, 2, NA, 2, 1, NA, NA, NA, NA,
+3, NA, 2, 1, NA, NA, NA, NA, 3, NA, 2, 2
+), ncol=7, nrow=7, byrow=FALSE,
+dimnames=list(1:7, LETTERS[1:7]))
+ x
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+durbinTest(x)
+
+# Örnek 10.20: Durbin testi sonrası testler 1 
+# Bağımlılık – Örnek: 10.19
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+durbinAllPairsTest(x, p.adj="none")
+
+# Örnek 10.21: Durbin testi sonrası testler 2 
+# Bağımlılık – Örnek: 10.19
+if(!require(PMCMRplus)) 
+  {install.packages("PMCMRplus"); library(PMCMRplus)}
+durbinAllPairsTest(x, p.adj="bonferroni")
+
+# Örnek 10.22: durbinD fonksiyonu ile Durbin testi 
+# Bağımlılık – Örnek: 10.19, Fonksiyon: 10.1
+durbinD(x)
+
+# Örnek 10.23: Verinin matris formatında hazırlanması
+x <- matrix(c(
+2,NA,NA,NA,3, NA, 3, 3, 3, NA, NA, NA, 3, NA, NA,
+1, 2, NA, NA, NA, 1, 1, NA, 1, 1,
+NA, NA, NA, NA, 2, NA, 2, 1, NA, NA, NA, NA,
+3, NA, 2, 1, NA, NA, NA, NA, 3, NA, 2, 2
+), ncol=7, nrow=7, byrow=FALSE, 
+dimnames=list(1:7, LETTERS[1:7]))
+x
+
+# Örnek 10.24: Sıra değerlerini hesaplama
+# Bağımlılık – Örnek: 10.23
+# x matrisindeki blokların sıra değerlerini hesapla
+y <- x
+for(i in 1:nrow(x)) 
+  y[i,] <- rank(x[i,], na.last="keep")
+
+# Örnek 10.25: Uzun veri formatına dönüştürme
+# Bağımlılık – Örnek: 10.24
+if(!require(reshape2)) 
+  {install.packages("reshape2"); require(reshape2)}
+icecream <- melt(y)
+colnames(icecream) <- c("panelist", "cesit", "rank")
+head(icecream)
+
+# Örnek 10.26: BIBD tasarımı için ANOVA
+# Bağımlılık – Örnek: 10.25
+# Eksik bloklar için Varyans analizi yap
+model <- aov(rank ~ panelist + cesit, data = icecream)
+summary(model)
+drop1(model, test = "F")
+
+# Örnek 10.27: ANOVA sonrası testler
+# Bağımlılık – Örnek: 10.26
+if(!require(multcomp)) 
+  {install.packages("multcomp"); require(multcomp)}
+kontrastlar <- glht(model, linfct = mcp(cesit = "Tukey"))
+summary(kontrastlar, test = adjusted("none"))
+
+# Örnek 10.28: Conchran Q testi 1
+blok <- rep( c(1,2,3,4,5,6,7,8,9,10), 3)
+yontem <- c(rep("A",10), rep("B",10), rep("C",10))
+basari <- c(0,1,1,0,1,1,1,0,0,0, 
+            0,1,0,0,1,0,1,0,0,0, 
+            1,1,0,1,1,1,1,1,0,1)
+biyokont <- data.frame(blok, yontem, basari)
+biyomat <- matrix(c(
+0,0,1,
+1,1,1,
+1,0,0,
+0,0,1,
+1,1,1,
+1,0,1,
+1,1,1,
+0,0,1,
+0,0,0,
+0,0,1),
+ncol=3, byrow=T)
+if(!require(nonpar)) 
+  {install.packages("nonpar"); library(nonpar)}
+cochrans.q(biyomat, alpha=0.05)
+
+# Örnek 10.29: Conchran Q testi 2
+# Bağımlılık – Örnek: 10.28
+if(!require(RVAideMemoire)) 
+  {install.packages("RVAideMemoire"); require(RVAideMemoire)}
+cochran.qtest(basari~yontem|blok, data=biyokont, alpha=0.05)
+
+# Örnek 10.30: Conchran Q testi sonrası testler
+# Bağımlılık – Örnek: 10.28
+cqtest <- cochran.qtest(basari~yontem|blok, data=biyokont,
+   alpha=0.05, p.method="bonferroni")
+cqtest
+
+# Örnek 11.1: Finner işlemi
+alpha <- 0.05
+p <- c(0.192,0.0005, 0.025, 0.0007, 0.042, 0.073) 
+# karşılaştırmalara ait ham p değerlerini sırala
+sp <- sort(p, decreasing=FALSE)
+sp
+m <- length(sp)
+i <- 1:m
+# düzeltilmiş alfa değerlerini (astar) hesapla
+astar <- 1-((1-alpha)^((m-i)/i))
+round(astar,4)
+# eğer p değeri düzeltilmiş alfadan küçük veya eşitse 
+# sıfır hipotezi red edilir.
+rejected <- which(sp <= astar)
+rejected
+
+# Örnek 11.2: Benjamini ve Hochberg işlemi
+q <- 0.05
+# Karşılaştırmalarda hesaplanan sıralanmış p değerleri
+p <- c(0.192,0.0005, 0.025, 0.0007, 0.042, 0.073) 
+# Sıralanmış p değerleri
+sp <- sort(p, decreasing=FALSE)
+sp
+m <- length(sp)
+i <- 1:m
+# Düzeltilmiş alfa değeri
+astar <- i/m*q
+round(astar,4)
+# Sıralı p değerleri ile düzeltilmiş alfa ile karşılaştır
+# ve küçük olanların en sonunda olanı bul
+k <- max(which(sp <= astar))
+k
+
+# Örnek 11.3: Benjamini ve Yekutieli işlemi
+q <- 0.05
+p <- c(0.192,0.0005, 0.025, 0.0007, 0.042, 0.073) 
+sp <- sort(p, decreasing=FALSE)
+sp
+m <- length(p)
+i <- 1:m
+qwave <- q/sum(1/i)
+astar <- i/m*qwave
+astar
+k <- max(which(sp<=astar))
+k
+
+# Örnek 11.4: Fisher kombinasyon testi
+p <- c(0.0005,0.0007,0.025,0.042,0.073,0.192)
+v <- 2*length(p)
+alpha <- 0.05
+kikare <- -2*sum(log(p))
+kikare
+kikarec <- qchisq(p=alpha, df=v)
+kikarec
+(kikare > kikarec)
+p.value <- 1-pchisq(44.93099, df=12)
+p.value
+
+# Örnek 11.5: p değeri düzeltme yöntemleri
+p.adjust.methods 
+
+# Örnek 11.6: Düzeltilmemiş p değerleri vektörü
+raw.p <- c(0.192, 0.0007, 0.0005, 0.042, 0.025, 0.073)
+raw.p  
+
+# Örnek 11.7: p değeri düzeltme işlemleri
+none <- p.adjust(raw.p, method="none")
+bonferroni <- p.adjust(raw.p, method="bonferroni")
+holm <- p.adjust(raw.p, method="holm")
+hochberg <- p.adjust(raw.p, method="hochberg")
+hommel <- p.adjust(raw.p, method="hommel")
+# fdr <- p.adjust(raw.p, method="fdr") #BH ile aynı
+BH <- p.adjust(raw.p, method="BH")
+BY <- p.adjust(raw.p, method="BY")
+adj.ptable <- data.frame(none, bonferroni, holm, hochberg,
+    hommel, BH, BY)
+adj.ptable
+
+# Örnek 11.8: Düzeltilmiş p değerleri grafiği çizme
+# Bağımlılık – Örnek: 11.7; Fonksiyon: 11.2
+plot.pvalues(adj.ptable)
+
+# Örnek 11.9: Düzeltilmiş p değerleri grafiği çizme 2
+# Bağımlılık – Örnek: 11.7
+rp <- 1:8   #Renk paleti
+matplot(adj.ptable, ylab="Düzeltilmiş p-değerleri", xlab="")
+matlines(adj.ptable, col=rp, lwd=2)
+legend(1,1, legend=colnames(adj.ptable),
+  col=rp, lty=1:7, lwd=2, cex=0.7)
+
+# Örnek 11.10: Düzeltme işlemi sonuçlarını inceleme
+# Bağımlılık – Örnek: 11.6
+apv.holm <- p.adjust(raw.p, method="holm")
+apv.holm
+table(apv.holm < 0.05)
+which(apv.holm < 0.05)
+apv.holm[which(apv.holm < 0.05)]
+
+# Örnek 11.11: Schweder-Spjøtvoll grafiği
+# Bağımlılık – Örnek: 11.10
+alpha <- 0.05
+n <- length(apv.holm)
+if(!require(metap)) {install.packages("metap")}
+schweder(apv.holm, drawline = "ab", 
+  ab.control = list(a = 0, b = alpha/n),
+  ab.lwd = 2, ab.lty = "dashed", ab.col = "red",
+  pch=19, xlab = "p’nin sırası", ylab = "p", 
+  main="Holm Düzeltmesi Schweder-Spjøtvoll Grafiği")
+
+# Örnek 11.11: Estetik Schweder-Spjøtvoll grafiği
+# Bağımlılık – Örnek: 11.10
+if(!require(ggplot2)) 
+  {install.packages("ggplot2"); require(ggplot2)}
+n <- length(apv.holm); eta0 <- 0.75
+qplot(sort(1-apv.holm), 1:n, 
+  xlab = "1 – p-değeri", ylab = "Test Sayısı", 
+  main = "Holm Düzeltmesi Schweder-Spjøtvoll Grafiği")+ 
+ geom_abline(intercept = 0, slope = n*eta0,
+  aes(color = "coral1"))
+
+# Örnek 11.12: Düzeltilmiş p değerleri histogramı
+# Bağımlılık – Örnek: 11.10
+hist(apv.holm, col="gray", prob=TRUE) 
+
+# Örnek 11.13: multtest paketi ile p değeri düzeltme 1
+# Bağımlılık – Örnek: 11.10
+if(!require(multtest)){
+  if(!requireNamespace("BiocManager", quietly = TRUE))
+    {install.packages("BiocManager");
+  BiocManager::install("multtest", version = "3.8"); 
+  require(multtest)}}
+raw.p <- c(0.192, 0.0007, 0.0005, 0.042, 0.025, 0.073)
+adj.ptable2 <- mt.rawp2adjp(raw.p)
+adj.ptable2
+
+# Örnek 11.14: multtest paketi ile p değeri düzeltme 2
+# Bağımlılık – Örnek: 11.13
+duzislem <- c("Bonferroni", "Holm", "Hochberg",   "SidakSS",
+  "SidakSD","BH", "BY","ABH", "TSBH")
+apv <-mt.rawp2adjp(raw.p, duzislem) 
+
+# Örnek 11.15: Düzeltilmiş p değerleri grafiği
+# Bağımlılık – Örnek: 11.13
+plot.pvalues(adj.ptable2$adjp)
+
+# Örnek 12.1: ARTool paketinin kurulması / yüklenmesi
+if(!require(ARTool)) 
+  {install.packages("ARTool"); require(ARTool)}
+
+# Örnek 12.2: Gübre deneme verisinin okunması ve incelenmesi
+setwd("C:/npbook")
+gubre <- read.table("gubre.txt", head=TRUE, sep="\t")
+str(gubre)
+print(gubre)
+
+# Örnek 12.3: Gübre deneme verisi sıra değerleri
+# Bağımlılık – Örnek: 12.1, 12.2
+art.gubre <- art(Y ~ A*B, data=gubre)
+
+# Örnek 12.4: Gübre deneme verisi ART nesnesi inceleme
+# Bağımlılık – Örnek: 12.3
+summary(art.gubre)
+
+# Örnek 12.5: ART nesnesi öznitelikleri
+# Bağımlılık – Örnek: 12.3
+attributes(art.gubre)
+
+# Örnek 12.6: ART nesnesi özniteliklerine erişme
+# Bağımlılık – Örnek: 12.3
+art.gubre$aligned
+art.gubre$aligned.ranks
+
+# Örnek 12.7: ART nesnesiyle ANOVA
+# Bağımlılık – Örnek: 12.3
+art.gubre.anova <- anova(art.gubre)
+art.gubre.anova   #veya print(art.gubre.anova)
+
+# Örnek 12.8: ANOVA sonuçları ayrıntılarını görüntüleme
+# Bağımlılık – Örnek: 12.7
+print(art.gubre.anova, verbose=TRUE)
+
+# Örnek 12.9a: ART ANOVA sonu testler 1
+# Bağımlılık – Örnek: 12.3
+if(!require(lsmeans)) 
+   {install.packages("lsmeans"); require(lsmeans)}
+lmA <- artlm(art.gubre, "A")
+lmA
+lsmeans(lmA, pairwise ~ A)
+
+# Örnek 12.9b: ART ANOVA sonu testler 2
+# Bağımlılık – Örnek: 12.3
+lmB <- artlm(art.gubre, "B")
+lsmeans(lmB, pairwise ~ B)
+
+# Örnek 12.9c: ART ANOVA sonu testler 3
+# Bağımlılık – Örnek: 12.3
+if(!require(emmeans)) 
+{install.packages("emmeans");library(emmeans)} 
+contrast(emmeans(artlm(art.gubre, "A"), ~A), method="pairwise")
+contrast(emmeans(artlm(art.gubre, "B"), ~B), method="pairwise")
+
+# Örnek 12.10a: ART ANOVA sonu testler 4
+# Bağımlılık – Örnek: 12.3
+if(!require(phia)) 
+   {install.packages("phia"); require(phia)}
+testInteractions(artlm(art.gubre, "A:B"), 
+   pairwise=c("A","B"), adjustment="holm")
+
+# Örnek 12.10b: ART ANOVA sonu testler 5
+# Bağımlılık – Örnek: 12.3
+contrast(emmeans(artlm(art.gubre, "A:B"),~A:B),
+   method="pairwise")
+
+# Örnek 12.11: İnteraksiyon grafiği
+# Bağımlılık – Örnek: 12.1
+with(gubre, interaction.plot(B, A, Y,col=c(2,4),lwd=2))
+
+# Örnek 12.12: Faktörlere göre değişim için keman grafikleri
+# Bağımlılık – Örnek: 12.1
+if(!require(ggplot2)){
+   install.packages("ggplot2"); library(ggplot2)}
+palette = c("blue", "orange")
+names(palette) = c("P0", "P1")
+ggplot(gubre, aes(x=A, y=Y, color=B)) + 
+  geom_violin(trim=FALSE, adjust=1.5) + 
+  geom_point(pch="-", size=4) +
+  stat_summary(fun.y=mean, geom="point", size=4) + 
+  stat_summary(fun.y=mean, geom="line", size=1,
+    mapping=aes(group=B)) +
+  stat_summary(fun.y=mean, geom="point", size=9,
+    mapping=aes(x=1.5, group=NA), pch="+") +
+  scale_y_continuous(breaks=seq(90,240,by=10),
+    minor_breaks=seq(90,240,by=10)) +
+  scale_color_manual(guide=FALSE, values=palette) +
+  coord_cartesian(ylim=c(90,240)) + 
+  facet_grid(. ~ B)
+
+# Örnek 12.13: Parametrik ve parametrik olmayan ANOVA
+# Bağımlılık – Örnek: 12.1
+options(contrasts = c("contr.sum", "contr.poly"))
+orig.gubre <- lm(Y~A*B, data=gubre)  # Doğrusal ANOVA modeli
+art.gubre <- art(Y~A*B, data=gubre)	# ART ANOVA modeli
+orig.gubre.anova <- anova(orig.gubre)
+art.gubre.anova <- anova(art.gubre)
+
+# Örnek 12.14: ART ANOVA sonuçları
+# Bağımlılık – Örnek: 12.13
+print(art.gubre.anova, verbose=TRUE)
+
+# Örnek 12.15: ART ANOVA etki büyüklükleri
+# Bağımlılık – Örnek: 12.13
+ss <- art.gubre.anova$"Sum Sq"
+ssres <- art.gubre.anova$"Sum Sq.res"
+ssr <- ss/(ss+ssres)
+art.gubre.anova$eta.sq.part <- ssr
+art.gubre.anova
+
+# Örnek 12.16: Parametrik ANOVA için etki büyüklükleri
+# Bağımlılık – Örnek: 12.13
+if(!require(DescTools)) 
+  {install.packages("DescTools"); require(DescTools)}
+DescTools::EtaSq(orig.gubre, type=3)
+
+# Örnek 12.17a: Cohen D istatistiği 1
+# Bağımlılık – Örnek: 12.3
+art.gubre.A <- artlm(art.gubre, "A")
+art.A.contrasts <- summary(pairs(emmeans(art.gubre.A, ~ A)))
+art.A.contrasts$d = art.A.contrasts$estimate /
+   sigmaHat(art.gubre.A)
+art.A.contrasts
+
+# Örnek 12.17b: Cohen D istatistiği 2
+# Bağımlılık – Örnek: 12.3
+art.gubre.B <- artlm(art.gubre, "B")
+art.B.contrasts <- summary(pairs(emmeans(art.gubre.B, ~ B)))
+art.B.contrasts$d = art.B.contrasts$estimate /
+   sigmaHat(art.gubre.B)
+art.B.contrasts
+
+# Örnek 12.18a: Cohen D istatistiği güven aralıkları 1
+# Bağımlılık – Örnek: 12.17a, 12.17b
+if(!require(dplyr)) {install.packages("dplyr"); require(dplyr)}
+art.B.cont.ci <- confint(pairs(emmeans(art.gubre.B, ~ B))) %>%
+    mutate(d = estimate / sigmaHat(art.gubre.B)) %>%
+    cbind(d = plyr::ldply(.$d, psych::d.ci, n1 = 6, n2 = 6)) 
+art.B.cont.ci 
+
+# Örnek 12.18b: Cohen D istatistiği güven aralıkları 2
+# Bağımlılık – Örnek: 12.13
+if(!require(psych)) {install.packages("psych"); require(psych)}
+B.cont.ci = confint(pairs(emmeans(orig.gubre, ~ B))) %>%
+    mutate(d = estimate / sigmaHat(orig.gubre)) %>%
+    cbind(d = plyr::ldply(.$d, psych::d.ci, n1 = 6, n2 = 6))
+B.cont.ci
+
+# Örnek 12.19: Güven aralıklarının karşılaştırılması
+# Bağımlılık – Örnek: 12.18a, 12.18b
+if(!require(dplyr)) {
+   install.packages("dplyr"); require(dplyr)}
+if(!require(ggplot2))
+  {install.packages("ggplot2"); require(ggplot2)}
+rbind(
+   cbind(B.cont.ci, model="linear"), 
+   cbind(art.B.cont.ci, model="ART")
+    ) %>%
+    ggplot(aes(x=model, y=d, ymin=d.lower, ymax=d.upper)) +
+    geom_pointrange() +
+    geom_hline(aes(yintercept = true_effect), 
+      data = data.frame(true_effect = c(-6), 
+      contrast = c("P0 – P1")), 
+      linetype = "dashed", color = "red") +
+    facet_grid(contrast ~ .) + 
+    coord_flip()
+
+# Örnek 12.20: Higgins1990Table5 veriseti 
+if(!require(ARTool))
+  {install.packages("ARTool"); require(ARTool)}
+data(Higgins1990Table5)
+str(Higgins1990Table5)
+head(Higgins1990Table5)
+
+# Örnek 12.21: Karışık model faktöriyel ANOVA 
+# Bağımlılık – Örnek: 12.20
+if(!require(ez)) {install.packages("ez"); require(ez)}
+modelAnova <- ezANOVA(
+    data = Higgins1990Table5
+    , dv = .(DryMatter)
+    , wid = .(Tray)
+    , between = .(Moisture, Fertilizer)
+    , type=3
+)
+modelAnova
+
+# Örnek 12.22: ART ANOVA modeli tanımlama 
+# Bağımlılık – Örnek: 12.20
+modelNP <- art(DryMatter ~ Moisture*Fertilizer + (1|Tray),
+  data=Higgins1990Table5)
+
+# Örnek 12.23: ART ANOVA sonuçları 
+# Bağımlılık – Örnek: 12.21
+anova(modelNP)
+
+# Örnek 12.24: ART ANOVA interaksiyon etkileri 
+# Bağımlılık – Örnek: 12.21
+if(!require(phia))
+  {install.packages("phia"); require(phia)}
+phia::testInteractions(artlm(modelNP, "Moisture:Fertilizer"),
+pairwise=c("Moisture", "Fertilizer"))
+
+# Örnek 13.1: Spearman korelasyonu hesaplama
+x <- c(26,24,22,30,27,21,25,29)
+y <- c(56,54,51,55,55,48,55,56)
+rxort <- mean(rank(x))
+ryort <- mean(rank(y))
+rxort
+ryort
+nom <- sum((rank(x)-rxort)*(rank(y)-ryort))
+nom
+denom <- sqrt( sum((rank(x)-rxort)^2)*sum((rank(y)-ryort)^2))
+denom
+rs <- nom/denom
+rs
+
+# Örnek 13.2: t istatistiğinin olasılığı
+2*pt(3.110561, df=6, lower.tail=F)
+
+# Örnek 13.3: cor.test ile Spearman korelasyonu hesaplama
+x <- c(26,24,22,30,27,21,25,29)
+y <- c(56,54,51,55,55,48,55,56)
+cor.test(x, y, method="spearman")
+
+# Örnek 13.4: cor ile Kendall tau-b korelasyonu
+x <- c(4, 6, 3, 6, 6, 5, 4)
+y <- c(50, 65, 52, 70, 72, 65, 51)
+cor(x, y, method="kendall")
+
+# Örnek 13.5: cor.test ile Kendall tau-b önemlilik testi
+# Bağımlılık – Örnek: 13.4
+#
+cor.test(x, y, method="kendall")
+
+# Örnek 13.6: DescTools ile Kendall tau-a korelasyonu
+# Bağımlılık – Örnek: 13.4
+if(!require(DescTools)) 
+  {install.packages("DescTools"); library(DescTools)}
+KendallTauA(x, y)
+StuartTauC(x, y)
+GoodmanKruskalGamma(x, y)
+
+# Örnek 13.7: Kendall paketi ile Kendall tau-b önemlilik testi
+# Bağımlılık – Örnek: 13.4
+if(!require(Kendall)) 
+  {install.packages("Kendall"); require(Kendall)}
+summary(Kendall(x,y))
+
+# Örnek 13.8: oii paketi ile birliktelik ölçüleri
+# Bağımlılık – Örnek: 13.4
+if(!require(oii)) {
+  install.packages("oii"); library(oii)}
+association.measures(x, y)
+
+# Örnek 13.9: Gözlemler dosyasının okunması
+setwd("C:/npbook")
+kabak <- read.csv("kabak.csv", head=T)
+head(kabak)
+
+# Örnek 13.10: Deneme verisinde normallik kontrol grafikleri
+# Bağımlılık – Örnek: 13.9
+oldpar <- par(mfrow=c(1,2))
+boxplot(kabak$agr,col="gray",main="Ağırlık Kutu-bıyık grafiği")
+hist(kabak$agr, col="gray", 
+   xlab="Ağırlık(g)", ylab="Frekans", main="Ağırlık Histogram")
+par(oldpar)
+
+# Örnek 13.11: Deneme verisinde normallik testi
+# Bağımlılık – Örnek: 13.9
+if(!require(nortest))
+  {install.packages("nortest"); library(nortest)}
+nortest::ad.test(kabak$agr)
+
+# Örnek 13.12: Kendall-Theil-Sen/Siegel regresyonu analizi
+# Bağımlılık – Örnek: 13.9
+if(!require(mblm)) {
+  install.packages("mblm"); library(mblm)}
+tsr.model <- mblm(agr~cap, data=kabak)
+
+summary(tsr.model)
+
+# Örnek 13.13: Kendall-Theil-Sen/Siegel regresyon doğrusu
+# Bağımlılık – Örnek: 13.9, 13.12
+plot(agr~cap, data=kabak, pch=19, col="blue", 
+   xlab="Çap(mm)", ylab="Ağırlık(g)", 
+   main="Kendall-Theil-Sen Regresyonu")
+abline(tsr.model, col=2, lty=2)
+
+# Örnek 13.14: Kantil regresyonu analizi
+# Bağımlılık – Örnek: 13.9
+if(!require(quantreg)) 
+   {install.packages("quantreg"); library(quantreg)}
+kantr.model <- rq(agr~cap, data=kabak, tau=0.5)
+summary(kantr.model)
+
+# Örnek 13.15: Kantil regresyonu doğrusu
+# Bağımlılık – Örnek: 13.9, 13.14
+plot(agr~cap, data=kabak, pch=19, col="blue", 
+   xlab="Çap(mm)", ylab="Ağırlık(g)", 
+   main="Kantil Regresyonu")
+abline(kantr.model,col="red", lty=2, lwd=2)
+
+# Örnek 13.16: Kantil regresyonu modelinin uyum iyiliği
+# Bağımlılık – Örnek: 13.14
+bos.model <- rq(agr~1, tau = 0.5, data = kabak)
+summary(bos.model)
+anova(kantr.model, bos.model)
+
+# Örnek 13.17: Kantil regresyonu modelinin uyum iyiliği
+# Bağımlılık – Örnek: 13.14
+if(!require(rcompanion))
+   {install.packages("rcompanion"); library(rcompanion)}
+nagelkerke(kantr.model)
+
+# Örnek 13.18: Lokal regresyon analzi
+# Bağımlılık – Örnek: 13.9
+lokalr.model <- loess(agr~cap, data=kabak,
+   span=0.75, degree=2, family="gaussian")  
+summary(lokalr.model)
+
+# Örnek 13.19: Lokal regresyon eğrisi
+# Bağımlılık – Örnek: 13.9, 13.18
+plot(agr~cap, data=kabak, pch=19, col="blue", 
+   xlab="Çap(mm)", ylab="Ağırlık(g)", 
+   main="Loess Regresyonu")
+lines(lokalr.model, col="red", lty=2, lwd=2)
+
+# Örnek 13.20: Kernel regresyon analizi
+# Bağımlılık – Örnek: 13.9
+kernelr.model.1 <- ksmooth(x=kabak$cap, y=kabak$agr, 
+   kernel = "normal", bandwidth = 1.5)
+plot(kabak$cap, kabak$agr, col="blue", pch=19,
+  xlab="Çap", ylab="Ağr.", main="Çekirdek regresyonu (h=1.5)")
+lines(kernelr.model.1, lwd=2, lty=2, col="red")
+
+# Örnek 13.21: Kernel regresyon analizi 2
+# Bağımlılık – Örnek: 13.9
+kernelr.model.2 <- ksmooth(x=kabak$cap, y=kabak$agr, 
+  kernel = "normal", bandwidth=10.5)
+plot(kabak$cap, kabak$agr, col="blue", pch=19,
+  xlab="Çap", ylab="Ağr.", main="Çekirdek regresyonu (h=10.5)")
+lines(kernelr.model.2, lwd=2, lty=2, col="red")
+
+# Örnek 13.22: LOOCV ile bant genişliklerinin saptanması
+# Bağımlılık – Örnek: 13.9; Fonksiyon: 13.1
+loocv(x=kabak$cap, y=kabak$agr, h=0.5)
+loocv(x=kabak$cap, y=kabak$agr, h=1)
+loocv(x=kabak$cap, y=kabak$agr, h=10)
+
+# Örnek 13.23: Bant genişliklerinin saptanması
+# Bağımlılık – Örnek: 13.9
+h.vec <- seq(from=0.5,to=15, by=0.5)
+cv.hata <- rep(NA, length(h.vec))
+for(i in 1:length(h.vec)){
+   cv.hata[i] <- loocv(x=kabak$cap, y=kabak$agr, h=h.vec[i])
+}
+
+# Örnek 13.24: h değerleri ve hatalar
+# Bağımlılık – Örnek: 13.23
+h.vec
+cv.hata
+
+# Örnek 13.25: Minimum h ve tahmin hatası
+# Bağımlılık – Örnek: 13.24
+min.thm.hata <- min(cv.hata)  # minimum tahmin hatası
+min.thm.hata 
+h <- h.vec[which(cv.hata==min(cv.hata))]  # optimum h değeri
+h
+
+# Örnek 13.26: h değerleri ve tahmin hataları grafiği
+# Bağımlılık – Örnek: 13.24
+plot(x=h.vec, y=cv.hata, type="l", lwd=2, col="blue", pch=19, 
+  xlab="h değeri", ylab="tahmin hatası", main="LOOCV grafiği")
+
+# Örnek 13.26: k-CV ile bant genişlikleri
+# Bağımlılık – Örnek: 13.9
+k <- 5
+h.vec <- seq(from=0.5,to=15, by=0.5)
+cv.hata <- rep(NA, length(h.vec))
+for(i in 1:length(h.vec)){
+   cv.hata[i] <- kcv(x=kabak$cap, y=kabak$agr, h=h.vec[i], k=k)
+}
+
+# Örnek 13.27: h değerleri ve tahmin hataları grafiği
+# Bağımlılık – Örnek: 13.26
+min.thm.hata <- min(cv.hata, na.rm=T)  # minimum tahmin hatası
+min.thm.hata 
+h <- h.vec[which(cv.hata==min.thm.hata)]  # optimum h değeri
+h
+plot(x=h.vec, y=cv.hata, type="l", lwd=2, col="blue", pch=19, 
+  xlab="h değeri", ylab="tahmin hatası", main="k-CV grafiği")
+
+# Örnek 13.28: GAM analizi
+# Bağımlılık – Örnek: 13.9
+if(!require(mgcv)){install.packages("mgcv"); require(mgcv)}
+gam.model <- gam(agr ~ s(cap), data=kabak, family=gaussian())
+summary(gam.model)
+
+# Örnek 13.29: Boş model 
+# Bağımlılık – Örnek: 13.9
+bos.model <- gam(agr~1, data=kabak, family=gaussian())
+summary(bos.model)
+
+# Örnek 13.30: GAM modeli ve boş modelin karşılaştırılması 1
+# Bağımlılık – Örnek: 13.28, 13.29
+anova(gam.model, bos.model)
+
+# Örnek 13.31: GAM modeli ve boş modelin karşılaştırılması 2
+# Bağımlılık – Örnek: 13.28, 13.29
+if(!require(lmtest))
+   {install.packages("lmtest"); library(lmtest)}
+lrtest(gam.model, bos.model)
+
+# Örnek 13.32: GAM modeli eğrisi
+# Bağımlılık – Örnek: 13.28, 13.29
+plot(kabak$cap, kabak$agr, pch=19, col="blue",
+   xlab="Çap", ylab="Ağırlık")
+lines(kabak$cap, predict(gam.model), lwd=2, lty=2, col="red")
+
+# Örnek 14.1: Yukarıya ve aşağıya koşuların saptanması
+nar <- c(3.8, 3.6, 4.3, 5.1, 4.4, 3.2, 4.1, 3.6, 4.3, 5.5, 3.3,
+         4.5, 3.8, 3.4, 4.8)
+dnar <- diff(nar)
+sign.dnar <- sign(dnar)
+replace(sign.dnar, sign.dnar ==-1, 0)
+
+# Örnek 14.2: İki bağımsız örneklemde bağımsızlık kontrolü
+x <- c(101.35, 88.24, 79.68, 102.81, 83.45, 88.87, 96.65,
+       89.62, 72.04, 78.22)
+y <- c(96.36, 104.00, 83.68, 92.17, 110.89, 100.63, 109.39,
+       83.31, 94.36, 90.45, 99.83, 83.31, 95.07)
+names(x) <- paste0("A",1:length(x))
+names(y) <- paste0("B",1:length(y))
+xy <- c(x,y)
+sxy <- sort(xy)
+nxy <- names(sxy)
+as.factor(substr(nxy,1,1))
+
+# Örnek 14.3: İki yönlü hipotez testinde Z için olasılık
+z <- 0.5175493
+2*(1-pnorm(z, lower.tail=TRUE))
+
+# Örnek 14.4: İki yönlü hipotez testinde Z için olasılık
+z <- 0.2587747
+2*(1-pnorm(z, lower.tail=TRUE))
+
+# Örnek 14.5: Kesin koşu testi uygulaması
+# Bağımlılık – Fonksiyon: 14.1
+#
+n1 <- 8
+n2 <- 8 
+r1 <- 5 
+r2 <- 5
+r <- r1+r2
+rmin <- 2
+rmax <- n1 + n2
+if(n1!=n2) rmax <- 2*min(n1,n2)+1
+mur <- 2*n1*n2/(n1+n2)+1
+m1 <- mur - abs(r-mur)
+m2 <- mur + abs(r-mur)
+runs.exact.test(rmin=rmin, rmax=rmax, m1=m1, m2=m2)
+
+# Örnek 14.6a: DescTools paketi ile koşu testi
+#
+nar <- c(3.8, 3.6, 4.3, 5.1, 4.4, 3.2, 4.1, 3.6, 3.6, 4.3, 5.5,
+         3.3, 4.5, 3.8, 3.4, 4.8)
+if(!require(DescTools)) {
+   install.packages("DescTools"); library(DescTools)}
+RunsTest(nar, alternative="two.sided", exact=TRUE)
+
+# Örnek 14.6b: DescTools paketi ile koşu testi 2
+# Bağımlılık – Örnek: 14.6a
+RunsTest(nar, alternative="two.sided", exact=FALSE)
+
+# Örnek 14.6c: snpar paketi ile koşu testi
+# Bağımlılık – Örnek: 14.6a
+if(!require(snpar)){
+  install.packages("snpar"); library(snpar)}
+runs.test(nar, alternative="two.sided", exact=TRUE)
+runs.test(nar, alternative="two.sided", exact=FALSE)
+
+# Örnek 14.6d: lawstat paketi ile koşu testi
+# Bağımlılık – Örnek: 14.6a
+#
+if(!require(lawstat)) install.packages("lawstat")
+runs.test(nar, alternative="two.sided")
+
+# Örnek 14.6e: randtests paketi ile koşu testi
+# Bağımlılık – Örnek: 14.6a
+#
+if(!require(randtests)){
+  install.packages("randtests"); library(randtests)}
+runs.test(nar, alternative="two.sided", 
+  threshold=median(nar), plot=TRUE)
+runs.test(nar, alternative="two.sided", 
+  threshold=median(nar), pvalue="exact", plot=FALSE)
+
+# Örnek 14.6f: trend paketi ile koşu testi
+# Bağımlılık – Örnek: 14.6a
+if(!require(trend)){
+  install.packages("trend"); library(trend)}
+ww.test(nar)
+
+# Örnek 14.6g: trend paketi ile koşu testi
+# Bağımlılık – Örnek: 14.6a
+if(!require(adehabitatLT)){
+  install.packages("adehabitatLT"); library(adehabitatLT)}
+wawotest(nar, alternative="two.sided")
+
+# Örnek 14.7: Dizisel rastlantısallık için koşuların saptanması
+nar <- c(3.8, 3.6, 4.3, 5.1, 4.4, 3.2, 4.1, 3.6, 3.6, 4.3, 5.5,
+         3.3, 4.5, 3.8, 3.4, 4.8)
+dnar <- diff(nar)
+sign.dnar <- sign(dnar)
+sign.dnar
+
+# Örnek 14.8: Z istatistiği için olasılık
+z <- 1.132279
+2*(1-pnorm(abs(z), lower.tail=TRUE))
+
+# Örnek 14.9: Z istatistiği için olasılık
+z <- 0.7763893
+pvalue <- 2*(1-pnorm(abs(z)))
+pvalue
+
+# Örnek 14.10: Kategorik değişken için koşu testi
+insulin <-c(
+"A","T","G","G","C","G","A","G","C","C","C","T","C","C","G","G","A",
+"G","A","C","T","G","A","C","G","G","C","T","T","C","T","C","G","G",
+"A","C","G","T","G","C","G","C","A","A","G","G","T","G","G","G","C",
+"T","A","C","C","T","G","C","G","C","A","A","A","C","C","C","A","A",
+"G","A","G","C","A","T","G","C","A","C","A","A","A","C","G","A","T",
+"T","C","T","T","C","G","T","G","C","T","G","C","G","G","G","C","G",
+"G","C","C","A","G","C","G","A","G","G","C","T","G","G","G","G","G",
+"C","C","C","G","G","C","G","C","G","C","C","T","C","G","A","G","T",
+"A","C","T","A","C","G","A","G","A","A","C","G","A","G","A","A","G",
+"A","A","G","T","G","G","C","G","G","C","A","C","A","A","G","T","C",
+"T","A","G","C","G","C","C","C","C","C","A","A","A","C","G","C","T",
+"C","G","A","T","C","C","C","C","C","T","G","G","A","G","A","G","C",
+"T","G","C","T","T","C","A","A","C","A","T","C","A","A","C","A","A",
+"G","C","G","G","G","C","G","G","A","C","T","C","C","A","A","G","A",
+"A","C","A","A","G","C","A","C","C","T","G","G","T","G","G","C","C",
+"C","T","C","T","A","C","A","C","C","C","G","G","G","A","C","G","A",
+"G","C","A","C","T","T","T","G","C","C","A","T","C","G","C","G","G",
+"C","A","G","A","C","A","G","C","G","A","G","G","C","C","G","A","G",
+"C","A","G","G","A","C","A","G","C","T","G","G","T","A","C","C","A",
+"G","G","C","C","C","T","C","C","T","G","C","A","G","C","T","G","C",
+"A","C","A","A","C","C","G","T","G","C","C","A","A","G","G","G","C",
+"C","A","C")
+if(!require(devtools)){
+   install.packages("devtools"); library(devtools)}
+if(!require(trqwe)){ 
+  devtools::install_github("traversc/trqwe"); library(trqwe)}
+ww_test(insulin)
+
+# Örnek 14.11: Kategorik değişken için koşu testi
+# Bağımlılık – Örnek: 14.10; Fonksiyon: 14.4
+kat.kosu.test(insulin)
+
+# Örnek 14.12: Kategorik değişken için koşu sayısı
+# Bağımlılık – Örnek: 14.10; Fonksiyon: 14.5
+kosu.say (insulin)
+
+# Örnek 14.13: Mann-Kendall Testi için işaretler tablosu yapma
+# Bağımlılık – Fonksiyon: 14.6
+yagis <- c(456.6, 547.6, 501.0, 594.2, 439.7, 
+      417.9, 472.1,373.9, 275.9, 529.7, 472.1)
+mk.isaret.tablosu(yagis)
+
+# Örnek 14.14: Z istatistiğinin olasılığı
+z <- -1.014443
+pz <- 2*(1-pnorm(abs(z)))
+pz
+
+# Örnek 14.15: Yağış verisi vektörü
+yagis <- c(456.6, 547.6, 501.0, 594.2, 439.7, 417.9, 472.1,
+  373.9, 275.9, 529.7, 472.1)
+
+# Örnek 14.16: Yağış verisini zaman serisi veri türüne çevirme
+# Bağımlılık – Örnek: 14.15
+tsyagis <- ts(yagis, start=2000, end=2010, frequency=1)
+tsyagis
+
+# Örnek 14.17: Zaman serisi grafiği
+# Bağımlılık – Örnek: 14.16
+plot(tsyagis, col="blue", 
+  ylab="Yıllık yağış (mm)", xlab="Yıllar")
+lines(lowess(time(tsyagis), tsyagis), col="red", lwd=2)
+
+# Örnek 14.18: Zaman serisi grafiği
+# Bağımlılık – Örnek: 14.16
+par(mfrow=c(2,1))
+acf(tsyagis, main="Otokorelasyon")
+pacf(tsyagis, main="Kısmi otokorelasyon")
+
+# Örnek 14.19a: Mann-Kendall testi 1
+# Bağımlılık – Örnek: 14.16
+if(!require(Kendall)) {
+  install.packages("Kendall"); library(Kendall)}
+MannKendall(tsyagis)
+
+# Örnek 14.19b: Mann-Kendall testi 2
+# Bağımlılık – Örnek: 14.16, 14.19
+sonuc <-  MannKendall(tsyagis)
+print(sonuc)
+summary(sonuc)
+
+# Örnek 14.20: trend paketi ile Mann-Kendall testi 
+# Bağımlılık – Örnek: 14.16
+if(!require(trend)) {
+  install.packages("trend"); library(trend)}
+mk.test(tsyagis, alternative = "two.sided")
+
+# Örnek 14.21: emon paketi ile Mann-Kendall testi 
+# Bağımlılık – Örnek: 14.15
+if(!require(emon)) {
+  install.packages("emon"); library(emon)}
+zaman <- 2000:2010
+mannkendall(zaman, yagis)
+
+# Örnek 14.22: rkt paketi ile Mann-Kendall testi 
+# Bağımlılık – Örnek: 14.15
+if(!require(rkt)) {
+  install.packages("rkt"); library(rkt)}
+zaman <- 2000:2010
+rkt(zaman, yagis)
+
+# Örnek 14.23: Mann-Kendall testi bootstrap kestirimleri
+# Bağımlılık – Örnek: 14.15
+if(!require(boot)) {
+  install.packages("boot"); library(boot)}
+stau <- function(z) MannKendall(z)$tau
+tsboot(tsyagis, stau, R=500, l=5, sim="fixed")
+
+# Örnek 14.24: Mann-Kendall testi bootstrap güven aralığı
+# Bağımlılık – Örnek: 14.23
+boot_sonuc <- tsboot(tsyagis, stau, R=500, l=5, sim="fixed")
+boot.ci(boot_sonuc, type="perc")
+
+# Örnek 14.25: Z istatistiği olasılığı
+z <- -0.4447504
+2*(1-pnorm(abs(z)))
+
+# Örnek 14.26: RVN istatistiğinin olasılığı
+RVN <- 1.751142; a <- b <- 5.887921
+2*pbeta(RVN/4, shape1=a, shape2=b)
+
+# Örnek 14.27: Non-standart beta dağılışında 
+# RVN istatistiğinin olasılığı
+if(!require(extraDistr)) {
+   install.packages("extraDistr"); library(extraDistr)}
+RVN <- 1.751142 
+a <- b <- 5.887921
+pnsbeta(RVN, a, b, min = 0, max = 4, lower.tail=F)
+
+# Örnek 14.28: Bartels’ın sıra sayıları testi 1
+yagis <- c(456.6, 547.6, 501.0, 594.2, 439.7, 417.9, 472.1,
+           373.9, 275.9, 529.7, 472.1)
+if(!require(DescTools)) {
+   install.packages("DescTools"); library(DescTools)}
+BartelsRankTest(yagis, 
+ alternative="two.sided", method="normal")
+
+# Örnek 14.29: Bartels’ın sıra sayıları testi 2
+# Bağımlılık – Örnek: 14.28
+if(!require(DescTools)) {
+   install.packages("DescTools"); library(DescTools)}
+BartelsRankTest(yagis, alternative="two.sided", method="beta")
+
+# Örnek 14.30: Bartels’ın sıra sayıları testi 3
+# Bağımlılık – Örnek: 14.28
+if(!require(DescTools)) {
+   install.packages("DescTools"); library(DescTools)}
+BartelsRankTest(yagis, alternative="two.sided", method="auto")
+
+# Örnek 14.32: Bartels’ın sıra sayıları testi 4
+# Bağımlılık – Örnek: 14.28
+if(!require(randtests)) {
+  install.packages("randtests"); library(randtests)}
+bartels.rank.test(yagis, alternative="two.sided", 
+   pvalue="beta")
+
+# Örnek 14.33: Bartels’ın sıra sayıları testi 5
+# Bağımlılık – Örnek: 14.28
+if(!require(trend)) {
+  install.packages("trend"); library(trend)}
+bartels.test(yagis)
+
+# Örnek 14.34: Bartels’ın sıra sayıları testi 6
+# Bağımlılık – Örnek: 14.28
+if(!require(lawstat)) {
+  install.packages("lawstat"); library(lawstat)}
+bartels.test(yagis, alternative="two.sided")
+
+# Örnek 14.35: Cox-Stuart testi 
+yagis <- c(456.6, 547.6, 501.0, 594.2, 439.7, 417.9, 472.1,
+           373.9, 275.9, 529.7, 472.1)
+if(!require(randtests)) 
+  {install.packages("randtests"); require(randtests)}
+cox.stuart.test(yagis, alternative="two.sided")
+
+# Örnek 14.36: Eğilim grafikleri 
+burdur <- c(456.6, 547.6, 501.0, 594.2, 439.7, 417.9, 472.1,
+            373.9, 275.9, 529.7, 472.1)
+ igdir <- c(210.3, 275.6, 346.1, 351.2, 280.4, 261.7, 340.1,
+            358.7, 160.3, 305.2, 349.1)
+plot(burdur, type="l", col=4, ylim=c(0,800), xaxt="none", 
+   xlab="Yıllar", ylab="Yağış(mm) ")
+axis(1, at=seq(1:11), labels=c(2000:2010),font=5)
+lines(igdir, type="l", col=2)
+
+# Örnek 14.37: Entropilerin hesaplanması 
+if(!require(np)) {
+  install.packages("np"); library(np)}
+burdur <- c(456.6, 547.6, 501.0, 594.2, 439.7, 417.9, 472.1,
+            373.9, 275.9, 529.7, 472.1)
+igdir <- c(210.3, 275.6, 346.1, 351.2, 280.4, 261.7, 340.1,
+           358.7, 160.3, 305.2, 349.1)
+npunitest(burdur, igdir, bootstrap=FALSE)
+
+# Örnek 14.38: Entropilerin bootstrap ile kestirilmesi 
+ npunitest(burdur, igdir, boot.num=90)
+
+# Örnek 15.1: Ki-kare testi 
+x <- c(34, 37, 28, 31)
+names(x) <- c("Ispanak","Kişniş","Lahana","Yerfıstığı")
+x
+chisq.test(x)
+
+# Örnek 15.2: G testi
+if(!require(DescTools)){
+   instal.packages("DescTools"); library(DescTools)}
+gozlenen <- c(34, 37, 28, 31)     # Gözlenen değerler
+beklenen <- c(1/4, 1/4, 1/4, 1/4) # Beklenen oranlar
+if(!require(DescTools)){install.packages("DescTools")}
+GTest(x=gozlenen, p=beklenen, correct="none")   
+
+# Örnek 15.3: Ki-kare testi
+kelebek <- matrix(nrow=5, ncol=3,
+   c(18,2,5,2,4,7,36,42,2,23,40,4,1,3,12), byrow=T)
+colnames(kelebek) <- c("MÇ","YT","AS")
+rownames(kelebek) <- c("VC","VA","PB","PR","CC")
+kelebek
+chisq.test(kelebek) 
+
+# Örnek 15.4: Fi-kare ölçüsü hesaplama
+# Bağımlılık - Örnek 15.3; Fonksiyon: 15.1
+phisq(kelebek)
+
+# Örnek 15.5: Cramér’in V katsayısı
+# Bağımlılık - Örnek 15.3; Fonksiyon: 15.2
+cramer.v(kelebek)
+
+# Örnek 15.6: Örnek için 2x2 tablo oluşturma
+iskaza <- matrix(c(2, 9, 18, 16), nrow = 2,
+       dimnames = list(Egitim = c("Almış", "Almamış"),
+       Kaza = c("Yapan", "Yapmayan")))
+iskaza
+
+# Örnek 15.7a: Yates düzeltmesi olmadan Ki-kare testi 
+# Bağımlılık - Örnek 15.6
+chisq.test(iskaza, correct=FALSE)
+
+# Örnek 15.7b: Yates düzeltmeli Ki-kare testi 
+# Bağımlılık - Örnek 15.6
+chisq.test(iskaza, correct=TRUE)
+
+# Örnek 15.8: Yule’un Q katsayısını hesaplama
+# Bağımlılık – Fonksiyon 15.3
+x <- matrix(c(35,15,52,84), nrow=2, byrow=T)
+x
+yule.q(x)
+
+# Örnek 15.9: Logit ve doğrusal regresyon eğrileri
+x <- seq(-4, 4, length= 1000)
+p <- 1/(1+exp(-x*pi/sqrt(2)))
+plot(x, p, type="l", ylab="P(y)", cex=1, col=4, lwd=3)
+reglm <- lm(p ~ x)
+abline(reglm,col=1, lwd=1)
+
+# Örnek 15.10: Örnek veri dosyasının okunması
+dosya.adres <- "https://bit.ly/2GqGA4d"
+kasko <- read.csv(dosya.adres, header=TRUE)
+
+# Örnek 15.11: Veri dosyasındaki değişkenleri adlandırma
+# Bağımlılık – Örnek: 15.10
+colnames(kasko) <- c("yas","csure","cins","iy", "as","mh","fk")
+
+# Örnek 15.12: Kategorik değişkenlerin belirlenmesi
+# Bağımlılık – Örnek: 15.10
+kasko$iy <- as.factor(kasko$iy)
+kasko$cins <- as.factor(kasko$cins)
+kasko$as <- as.factor(kasko$as)
+kasko$fk <- as.factor(kasko$fk)
+
+# Örnek 15.13: Veri çerçevesi
+# Bağımlılık – Örnek: 15.10
+head(kasko)
+
+# Örnek 15.14: Tanımlayıcı istatistikler
+# Bağımlılık – Örnek: 15.10
+summary(kasko)
+
+# Örnek 15.15a: Bağımlı değişken frekans tablosu
+# Bağımlılık – Örnek: 15.10
+table(kasko$fk)
+
+# Örnek 15.15b: Bağımlı değişken frekans tablosu
+# Bağımlılık – Örnek: 15.10
+xtabs(~fk + cins, data = kasko)
+xtabs(~fk + cins, data = kasko)
+xtabs(~fk + iy, data = kasko)
+
+# Örnek 15.16: Eğitim ve test verisetlerinin oluşturulması
+# Bağımlılık – Örnek: 15.10
+y1 <- kasko[which(kasko$fk == 1), ]  # tüm 1’leri belirle
+y0 <- kasko[which(kasko$fk == 0), ]  # tüm 0’lari belirle
+set.seed(1923)  #örneğin tekrarında aynı sonuçlara ulaşmak için
+sy.1 <- sample(1:nrow(y1),0.7*nrow(y1))  # egitim seti 1’ler
+sy.0 <- sample(1:nrow(y0),0.7*nrow(y0))  # egitim seti 0’lar 
+t.1 <- y1[sy.1,]  
+t.0 <- y0[sy.1,]  
+trn.kasko <- rbind(t.1, t.0)  # eğitim seti
+t.1 <- y1[-sy.1,]  
+t.0 <- y0[-sy.0,]  
+tst.kasko <- rbind(t.1, t.0)  # test veriseti
+
+# Örnek 15.17: Lojistik regresyon analizi ve sonuçları
+# Bağımlılık – Örnek: 15.10
+log.model <- glm(fk ~ yas + csure + cins + mh + iy + as,
+   data=trn.kasko, family=binomial(link="logit"))
+summary(log.model)
+#Odds-ratio
+exp(coef(summary(log.model,1)))
+
+# Örnek 15.18: Lojistik regresyon analizi öznitelikleri
+# Bağımlılık – Örnek: 15.17
+attributes(log.model)
+
+# Örnek 15.19: Lojistik regresyon modeli için AIC değeri
+# Bağımlılık – Örnek: 15.17
+log.model$aic
+
+# Örnek 15.20: Lojistik regresyon modeli için LR testi
+# Bağımlılık – Örnek: 15.17
+if(!require(car)) {install.packages("car"); require(car)}
+Anova(log.model, type="II", test="LR")
+
+# Örnek 15.21: Modeldeki bağımsız değişkenlerin önemlilikleri
+# Bağımlılık – Örnek: 15.16
+log.model.vi <- train(fk ~ yas + csure +cins + mh + iy + as,
+  data=trn.kasko, method="glm", family="binomial")
+if(!require(caret)){
+  install.packages("caret"); library(caret)}
+caret::varImp(log.model.vi)
+
+# Örnek 15.22: Model katsayılarının güven aralıkları
+# Bağımlılık – Örnek: 15.17
+confint(log.model)
+
+# Örnek 15.23: Odd-oranları
+# Bağımlılık – Örnek: 15.17
+exp(coef(log.model))
+exp(confint(log.model)) 
+
+# Örnek 15.24: Model katsayılarının güven aralıkları
+# Bağımlılık – Örnek: 15.17
+confint.default(log.model)
+
+# Örnek 15.25a: Tahmin işlemi 1
+# Bağımlılık – Örnek: 15.17
+logitfk <- predict(log.model, data.frame(yas = 25, csure=10,
+ cins=factor(1), iy=factor(1), mh=factor("S"), as=factor(1)),
+ type = "response")
+logitfk
+est.fk <- exp(logitfk)
+p <- 1/(1+exp(-logitfk))
+p
+
+# Örnek 15.25b: Tahmin işlemi 2
+# Bağımlılık – Örnek: 15.17
+est.kasko <- predict(log.model, tst.kasko, type="response")
+head(est.kasko,5)
+est.kasko <- plogis(predict(log.model, tst.kasko))
+head(est.kasko, 5)
+
+# Örnek 15.26: Kalıntıların hesaplanması
+# Bağımlılık – Örnek: 15.17
+res.kasko <- residuals(log.model, tst.kasko, type="deviance") 
+head(res.kasko,5)
+
+# Örnek 15.27a: ROC eğrilerinin çizilmesi 1
+# Bağımlılık – Örnek: 15.16
+if(!require(pROC)) {install.packages("pROC"); library(pROC)}
+roc1 <- roc(fk ~ yas, data=tst.kasko) 
+plot(roc1, col="red")
+
+# Örnek 15.27b: ROC eğrilerinin çizilmesi 2
+# Bağımlılık – Örnek: 15.17
+if(!require(ROCR)) {install.packages("ROCR"); library(ROCR)}
+prob.log.model <- predict(log.model, newdata=tst.kasko,
+   type="response")
+pred.log.model <- prediction(prob.log.model, tst.kasko$fk)
+perf.log.model <- performance(pred.log.model, measure = "tpr",
+  x.measure = "fpr")
+plot(perf.log.model)
+
+# Örnek 15.27c: ROC eğrilerinin çizilmesi 3
+# Bağımlılık – Örnek: 15.17
+if(!require(InformationValue))
+ {install.packages("InformationValue");
+ library (InformationValue)}
+plotROC(tst.kasko$fk, est.kasko)
+
+# Örnek 15.28: AUC hesaplama
+# Bağımlılık – Örnek: 15.27b
+pred.log.model <- prediction(prob.log.model, tst.kasko$fk)
+perf.log.model <- performance(pred.log.model, measure = "auc")
+auc <- perf.log.model@y.values[[1]]
+auc
+
+# Örnek 15.29: Optimal kesme değeri
+# Bağımlılık – Örnek: 15.16, 15.25b
+opt.kesme <- optimalCutoff(tst.kasko$fk, est.kasko)
+opt.kesme
+
+# Örnek 15.30: Karışıklık matrisi
+# Bağımlılık – Örnek: 15.16, 15.25b
+#
+confusionMatrix(tst.kasko$fk, est.kasko, threshold=opt.kesme)
+
+# Örnek 15.31: Model başarım ölçütleri
+# Bağımlılık – Örnek: 15.16, 15.25b
+#
+Concordance(tst.kasko$fk, est.kasko)  
+misClassError(tst.kasko$fk, est.kasko, threshold=opt.kesme)
+sensitivity(tst.kasko$fk, est.kasko, threshold=opt.kesme) 
+specificity(tst.kasko$fk, est.kasko, threshold=opt.kesme)
+
+# Örnek 15.32: Hosmer-Lemeshow testi
+# Bağımlılık – Örnek: 15.17
+if(!require(MKmisc)) 
+   {install.packages("MKmisc"); library(MKmisc)}
+HLgof.test(fit = fitted(log.model), obs = trn.kasko$fk)
+if(!require(ResourceSelection)) 
+   {install.packages("ResourceSelection");
+    require(ResourceSelection)}
+hoslem.test(trn.kasko$fk, fitted(log.model), g=10)
+
+# Örnek 15.33: Modeldeki etkili gözlemler
+# Bağımlılık – Örnek: 15.17
+plot(log.model, which=4, id.n=10)
+
+# Örnek 15.34: Sürekli bağımsız değişken için Wald testi
+# Bağımlılık – Örnek: 15.17
+if(!require(survey)) 
+   {install.packages("survey"); require(survey)}
+regTermTest(log.model, "yas")
+
+# Örnek 15.35: Kategorik değişken için Wald testi
+# Bağımlılık – Örnek: 15.17
+regTermTest(log.model, "cins")
+
+# Örnek 15.36: Kategorik değişken için Wald testi
+# Bağımlılık – Örnek: 15.17
+if(!require(aod)){
+  install.packages("aod"); library(aod)}
+wald.test(b = coef(log.model), Sigma = vcov(log.model),
+  Terms = c(4))
+
+# Örnek 15.37: Kategorik değişken seviyeleri için Wald testi
+# Bağımlılık – Örnek: 15.17
+#
+d <- cbind(0, 0, 0, 0, 1, -1, 0, 0)
+wald.test(b=coef(log.model), Sigma=vcov(log.model), L=d)
+
+# Örnek 15.38a: Model uyum iyiliği 1
+# Bağımlılık – Örnek: 15.17
+#
+log.model$null.deviance-log.model$deviance
+
+# Örnek 15.38b: Model uyum iyiliği 2
+# Bağımlılık – Örnek: 15.17
+with(log.model, null.deviance - deviance)
+
+# Örnek 15.39: Model serbestlik derecesi
+# Bağımlılık – Örnek: 15.17
+with(log.model, df.null - df.residual)
+
+# Örnek 15.40: Model önemliliği
+# Bağımlılık – Örnek: 15.17
+with(log.model, pchisq(null.deviance - deviance, 
+  df.null - df.residual, lower.tail = FALSE))
+
+# Örnek 15.41: Model logLik değeri
+# Bağımlılık – Örnek: 15.17
+logLik(log.model)
+
+# Örnek 15.42: İki farklı lojistik model
+# Bağımlılık – Örnek: 15.16
+log.model1 <- glm(fk ~ cins + mh + as + iy, data=trn.kasko,
+    family=binomial(link="logit"))
+log.model2 <-glm(fk ~ yas + csure + cins + iy, data=trn.kasko,
+    family=binomial(link="logit"))
+
+# Örnek 15.43: İki farklı lojistik modelin karşılaştırılması 1
+# Bağımlılık – Örnek: 15.17, 15.42
+if(!require(lmtest)) 
+  {install.packages("lmtest"); library(lmtest)}
+lrtest(log.model, log.model1)
+lrtest(log.model, log.model2)
+
+# Örnek 15.44: İki farklı lojistik modelin karşılaştırılması 2
+# Bağımlılık – Örnek: 15.17
+anova(log.model, update(log.model,~1), test = "Chisq")
+
+# Örnek 15.45: İki farklı lojistik modelin karşılaştırılması 3
+# Bağımlılık – Örnek: 15.17, 15.42
+anova(log.model, log.model1, test = "Chisq")
+
+# Örnek 15.46: İki farklı lojistik modelin karşılaştırılması 3
+# Bağımlılık – Örnek: 15.17
+if(!require(pscl)){install.packages("pscl")}
+pscl::pR2(log.model)
+
+# Örnek 15.47: McFadden sahte   değerleri
+# Bağımlılık – Örnek: 15.17, 15.42
+if(!require(pscl)){install.packages("pscl")}
+list(mcfpr2.1 = pscl::pR2(log.model)["McFadden"],
+     mcfpr2.2 = pscl::pR2(log.model1)["McFadden"],
+     mcfpr2.3 = pscl::pR2(log.model2)["McFadden"])
+
+# Örnek 15.48: Çeşitli yöntemlerle sahte   değerleri
+# Bağımlılık – Örnek: 15.17, 15.42
+if(!require(rcompanion)) 
+  {install.packages("rcompanion"); library(rcompanion)}
+nagelkerke(log.model)
+
+# Örnek 15.49: Modellerin ROC eğrileriyle karşılaştırılması
+# Bağımlılık – Örnek: 15.17, 15.42
+if(!require(ROCR)) {install.packages("ROCR"); library(ROCR)}
+est.kasko1 <- plogis(predict(log.model, tst.kasko))
+est.kasko2 <- plogis(predict(log.model1, tst.kasko))
+est.kasko3 <- plogis(predict(log.model2, tst.kasko))
+pred.kasko1 <- prediction(est.kasko1, tst.kasko$fk)
+pred.kasko2 <- prediction(est.kasko2, tst.kasko$fk)
+pred.kasko3 <- prediction(est.kasko3, tst.kasko$fk)
+perf.log.model1 <- performance(pred.kasko1, "tpr", "fpr")
+perf.log.model2 <- performance(pred.kasko2, "tpr", "fpr")
+perf.log.model3 <- performance(pred.kasko3, "tpr", "fpr")
+plot(perf.log.model1, lwd=2, col="blue", main="ROC Eğrisi",
+   xlab="FPR", ylab="TPR")
+plot(perf.log.model2, add = TRUE, lwd=2, col="#A01199") 
+plot(perf.log.model3, add = TRUE, lwd=2, col="red")  
+abline(a=0, b=1, lty=2, lwd=2, col="black")
+legend(0.75, 0.2, legend=c("Tam Model", "Model 1", "Model 2"),
+   col=c("blue", "#A01199","red"), lty=1, cex=0.8)
+
+
+
